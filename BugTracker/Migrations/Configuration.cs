@@ -35,19 +35,24 @@ namespace BugTracker.Migrations
 
             const string ADMIN = "Admin";
 
+            const string MANAGER = "Project Manager";
+            const string DEVELOPER = "Developer";
+            const string SUBMITTER = "Submitter";
+
             ApplicationUser adminUser;
+            
+            CreateRole(ADMIN);
+            CreateRole(MANAGER);
+            CreateRole(DEVELOPER);
+            CreateRole(SUBMITTER);
 
             CreateUser(ADMIN);
 
-            //Function for seeding admin user.
-            void CreateUser(string position)
-            {
-                if (!context.Roles.Any(p => p.Name == "Admin"))
-                {
-                    var adminRole = new IdentityRole(position);
-                    roleManager.Create(adminRole);
-                }
 
+
+            //Function for seeding admin user.
+            void CreateUser(string user)
+            {
                 if (!context.Users.Any(p => p.Email == ADMIN.ToLower() + "@mybugtracker.com"))
                 {
 
@@ -62,15 +67,24 @@ namespace BugTracker.Migrations
 
                 else
                 {
-                    adminUser = context.Users.First(p => p.UserName == position.ToLower() + "@mybugtracker.com");
+                    adminUser = context.Users.First(p => p.UserName == user.ToLower() + "@mybugtracker.com");
                 }
 
-                if (!userManager.IsInRole(adminUser.Id, position))
+                if (!userManager.IsInRole(adminUser.Id, user))
                 {
-                    userManager.AddToRole(adminUser.Id, position);
+                    userManager.AddToRole(adminUser.Id, user);
                 }
             }
-        }
 
+            void CreateRole(string position)
+            {
+                if (!context.Roles.Any(p => p.Name == position))
+                {
+                    var Role = new IdentityRole(position);
+                    roleManager.Create(Role);
+                }
+            }
+
+        }
     }
 }
