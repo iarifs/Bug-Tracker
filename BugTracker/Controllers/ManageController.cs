@@ -7,6 +7,7 @@ using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using BugTracker.Models;
+using BugTracker.Models.ViewModels;
 
 namespace BugTracker.Controllers
 {
@@ -32,9 +33,9 @@ namespace BugTracker.Controllers
             {
                 return _signInManager ?? HttpContext.GetOwinContext().Get<ApplicationSignInManager>();
             }
-            private set 
-            { 
-                _signInManager = value; 
+            private set
+            {
+                _signInManager = value;
             }
         }
 
@@ -97,6 +98,46 @@ namespace BugTracker.Controllers
                 message = ManageMessageId.Error;
             }
             return RedirectToAction("ManageLogins", new { Message = message });
+        }
+
+        [HttpGet]
+        public ActionResult Edit()
+        {
+            var user = UserManager.FindById(User.Identity.GetUserId());
+            if (user == null)
+            {
+                return View("Error");
+            }
+            var model = new EditViewModel();
+            model.ScreenName = user.ScreenName;
+            ViewBag.isitChanged = false;
+            return View(model);
+        }
+
+        [HttpPost]
+        public ActionResult Edit(EditViewModel formData)
+        {
+            if (!ModelState.IsValid)
+            {
+                return View(formData);
+            }
+
+            var user = UserManager.FindById(User.Identity.GetUserId());
+            if (user == null)
+            {
+                return View("Error");
+            }
+
+            user.ScreenName = formData.ScreenName;
+            ViewBag.success = "Your profile changed succefully";
+            ViewBag.isitChanged = true;
+
+            UserManager.Update(user);
+
+            AuthenticationManager.SignOut(DefaultAuthenticationTypes.ApplicationCookie);
+            SignInManager.SignIn(user, true, false);
+
+            return RedirectToAction("Edit");
         }
 
         //
@@ -333,7 +374,7 @@ namespace BugTracker.Controllers
             base.Dispose(disposing);
         }
 
-#region Helpers
+        #region Helpers
         // Used for XSRF protection when adding external logins
         private const string XsrfKey = "XsrfId";
 
@@ -384,6 +425,6 @@ namespace BugTracker.Controllers
             Error
         }
 
-#endregion
+        #endregion
     }
 }

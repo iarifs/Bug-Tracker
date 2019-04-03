@@ -80,6 +80,8 @@ namespace BugTracker.Models
         [Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
         public string ConfirmPassword { get; set; }
 
+        [Required]
+        [Display(Name = "Profile Name")]
         public string ScreenName { get; set; }
     }
 

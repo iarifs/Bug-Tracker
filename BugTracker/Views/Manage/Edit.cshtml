@@ -1,0 +1,52 @@
+﻿@model EditViewModel
+@{
+    ViewBag.Title = "Edit-Profile";
+}
+
+@Html.Partial("_NavBarTop")
+
+@Html.Partial("_NavBarSide")
+
+
+<div id="page-wrapper">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-12">
+                <h1 class="page-header">User Profile</h1>
+            </div>
+            <!-- /.col-lg-12 -->
+        </div>
+        <!-- /.row -->
+        <div class="row">
+            <div class="col-lg-8 col-md-6">
+                @if (ViewBag.isitChanged)
+                {
+                    <div class="alert alert-success">
+                        <strong>Success!</strong>@ViewBag.success
+                    </div>
+                }
+                <div class="panel panel-green">
+                    <div class="panel-heading">
+                        <i class="fas fa-user">&nbsp;</i>@User.Identity.Name
+                    </div>
+                    <div class="panel-body">
+                        @using (Html.BeginForm("Edit", "Manage", FormMethod.Post, new { role = "form" }))
+                        {
+                            @Html.AntiForgeryToken()
+                            @Html.ValidationSummary("", new { @class = "text-danger" })
+
+                            <div class="form-group">
+                                @Html.LabelFor(m => m.ScreenName, new { @class = "control-label" })
+                                @Html.TextBoxFor(m => m.ScreenName, new { @class = "form-control" })
+                            </div>
+                            <hr />
+                            <input type="submit" value="Update Profile" class="btn btn-default" />
+                        }
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+</div>

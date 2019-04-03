@@ -60,6 +60,8 @@ namespace BugTracker.Migrations
                     {
                         UserName = ADMIN.ToLower() + "@mybugtracker.com",
                         Email = ADMIN.ToLower() + "@mybugtracker.com",
+                        EmailConfirmed = true,
+                        ScreenName = "admin",
                     };
 
                     userManager.Create(adminUser, "Password-1");
