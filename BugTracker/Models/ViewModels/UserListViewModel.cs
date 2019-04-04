@@ -15,11 +15,13 @@ namespace BugTracker.Models.ViewModels
 
         public string UserName { get; set; }
 
-        public ICollection<string>Roles { get; set; }
+        public List<string>Roles { get; set; }
+
 
         public UserListViewModel()
         {
             Roles = new List<string>();
+
         }
     }
 }

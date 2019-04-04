@@ -24,12 +24,14 @@
                 <li>
                     <a href="/"><i class="fas fa-tachometer-alt">&nbsp;</i>Dashboard</a>
                 </li>
-
+                @if (User.IsInRole("Admin"))
+                {
+                    <li>
+                        <a href="@Url.Action("Index", "ManageUser")"><i class="fa fa-table fa-fw"></i> Manage Users</a>
+                    </li>
+                }
                 <li>
-                    <a href="@Url.Action("Index","ManageUser")"><i class="fa fa-table fa-fw"></i> Manage Users</a>
-                </li>
-                <li>
-                    <a href="#"><i class="fa fa-edit fa-fw"></i> Forms</a>
+                    <a href="@Url.Action("Index","Project")"><i class="fas fa-tasks"></i> All Projects</a>
                 </li>
             </ul>
         </div>

@@ -129,15 +129,15 @@ namespace BugTracker.Controllers
             }
 
             user.ScreenName = formData.ScreenName;
-            ViewBag.success = "Your profile changed succefully";
-            ViewBag.isitChanged = true;
+           
 
             UserManager.Update(user);
 
             AuthenticationManager.SignOut(DefaultAuthenticationTypes.ApplicationCookie);
             SignInManager.SignIn(user, true, false);
-
-            return RedirectToAction("Edit");
+            ViewBag.success = "Your profile changed succefully";
+            ViewBag.isitChanged = true;
+            return RedirectToAction("Index");
         }
 
         //
