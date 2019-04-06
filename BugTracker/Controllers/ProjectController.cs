@@ -170,9 +170,11 @@ namespace BugTracker.Controllers
 
         }
 
-
-        public ActionResult MyProjects(string userName)
+        [OverrideAuthorization]
+        [Authorize(Roles = "Submitter,Developer,Admin,Project Manager")]
+        public ActionResult MyProjects()
         {
+            var userName = User.Identity.Name;
             var projectList = Db.Projects
                 .Where(p => p.Users.Any(n => n.UserName == userName))
                 .Select(n => new ProjectListViewModel
