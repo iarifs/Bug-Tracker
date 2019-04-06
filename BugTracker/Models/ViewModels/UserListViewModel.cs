@@ -17,6 +17,7 @@ namespace BugTracker.Models.ViewModels
 
         public List<string>Roles { get; set; }
 
+        public int ProjectId { get; set; }
 
         public UserListViewModel()
         {

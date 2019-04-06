@@ -15,11 +15,11 @@ namespace BugTracker.Models
         public int SmtpPort = 2525;
         public string SmtpUsername = "0340befff66304";
         public string SmtpPassword = "9c8abda3f8d8de";
-        public string SmtpFrom = "bugtracker@mail.net";
+        public string SmtpFrom = "tracker@mail.net";
 
         public void Send(string to, string body, string subject)
         {
-            var message = new MailMessage($"MyBugTracker{SmtpFrom}", to);
+            var message = new MailMessage($"MyBug{SmtpFrom}", to);
             message.Body = body;
             message.Subject = subject;
             message.IsBodyHtml = true;

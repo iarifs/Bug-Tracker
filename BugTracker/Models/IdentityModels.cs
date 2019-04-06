@@ -1,6 +1,8 @@
-﻿using System.Data.Entity;
+﻿using System.Collections.Generic;
+using System.Data.Entity;
 using System.Security.Claims;
 using System.Threading.Tasks;
+using BugTracker.Models.Domain;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
 
@@ -10,6 +12,8 @@ namespace BugTracker.Models
     public class ApplicationUser : IdentityUser
     {
         public string ScreenName { get; set; }
+        public virtual List<Project> Projects { get; set; } = new List<Project>();
+        public List<string> AssignRoles { get; set; }
 
         public async Task<ClaimsIdentity> GenerateUserIdentityAsync(UserManager<ApplicationUser> manager)
         {
@@ -29,6 +33,8 @@ namespace BugTracker.Models
             : base("DefaultConnection", throwIfV1Schema: false)
         {
         }
+
+        public DbSet<Project> Projects { get; set; }
 
         public static ApplicationDbContext Create()
         {

@@ -1,4 +1,5 @@
-﻿
+﻿@model  List<ProjectListViewModel>
+
 @{
     ViewBag.Title = "Index";
 }
@@ -16,13 +17,78 @@
             <!-- /.col-lg-12 -->
         </div>
         <div class="row">
-            <div class="col-lg-8 col-md-6">
+            <div class="col-lg-12 col-md-6">
                 <div class="panel panel-green">
                     <div class="panel-heading">
-                        <i class="far fa-file"></i> &nbsp; 
+                        <a href="@Url.Action("Create","Project")">
+                            <div class="btn btn-info">Create</div>
+                        </a>
                     </div>
                     <div class="panel-body">
+                        <div class="table-responsive">
+                            <table id="user-table" class="table table-striped user-table">
+                                <thead>
+                                    <tr>
+                                        <th class="name">
+                                            Name
+                                        </th>
+                                        <th class="Members">
+                                            Members
+                                        </th>
+                                        <th class="tickets">Tickets</th>
+                                        <th class="created">Created</th>
+                                        <th class="updated">Updated</th>
+                                        <th class="edit"></th>
+                                        <th class="add"></th>
+                                        <th class="delete"></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach (var item in Model)
+                                    {
+                                    <tr>
+                                        <td class="name">
+                                            @Html.DisplayFor(m => item.Name)
+                                        </td>
+                                        <td class="Members">
+                                            @Html.DisplayFor(m => item.NumbersOfUsers)
+                                        </td>
+                                        <td class="tickets">
+                                            @Html.DisplayFor(m => item.NumbersOfTickets)
+                                        </td>
 
+                                        <td class="created">
+                                            @Html.DisplayFor(m => item.DateCreated)
+                                        </td>
+                                        <td class="updated">
+                                            @Html.DisplayFor(m => item.DateUpdated)
+                                        </td>
+
+
+                                        <td class="edit">
+                                            <a href=@Url.Action("Edit","Project", new { id = item.Id }) title="Edit Projects">
+                                                <i class="btn fas fa-edit"></i>
+                                            </a>
+                                        </td>
+                                        <td class="add">
+                                            <a href=@Url.Action("ChangeMember","Project", new { id = item.Id }) title="Change Member">
+                                                <i class="btn fas fa-users"></i>
+                                            </a>
+                                        </td>
+
+                                        <td class="delete">
+                                            <form method="post" action="@Url.Action("Delete", "Project", new { id = item.Id })">
+                                                <button type="submit" class="btn btn-danger">
+                                                    <i class="fas fa-trash-alt"></i>
+                                                </button>
+                                            </form>
+                                        </td>
+
+                                    </tr>
+                                    }
+                                </tbody>
+                            </table>
+                        </div>
                     </div>
                 </div>
             </div>

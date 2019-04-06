@@ -1,0 +1,72 @@
+﻿@model  List<ProjectListViewModel>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+@Html.Partial("_NavBarTop")
+@Html.Partial("_NavBarSide")
+
+
+<div id="page-wrapper">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-12">
+                <h1 class="page-header">All Projects</h1>
+            </div>
+            <!-- /.col-lg-12 -->
+        </div>
+        <div class="row">
+            <div class="col-lg-12 col-md-6">
+                <div class="panel panel-green">
+                    <div class="panel-heading">
+                    </div>
+                    <div class="panel-body">
+                        <div class="table-responsive">
+                            <table id="user-table" class="table table-striped user-table">
+                                <thead>
+                                    <tr>
+                                        <th class="name">
+                                            Name
+                                        </th>
+                                        <th class="Members">
+                                            Members
+                                        </th>
+                                        <th class="tickets">Tickets</th>
+                                        <th class="created">Created</th>
+                                        <th class="updated">Updated</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach (var item in Model)
+                                    {
+                                        <tr>
+                                            <td class="name">
+                                                @Html.DisplayFor(m => item.Name)
+                                            </td>
+                                            <td class="Members">
+                                                @Html.DisplayFor(m => item.NumbersOfUsers)
+                                            </td>
+                                            <td class="tickets">
+                                                @Html.DisplayFor(m => item.NumbersOfTickets)
+                                            </td>
+
+                                            <td class="created">
+                                                @Html.DisplayFor(m => item.DateCreated)
+                                            </td>
+                                            <td class="updated">
+                                                @Html.DisplayFor(m => item.DateUpdated)
+                                            </td>
+                                        </tr>
+                                    }
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+</div>

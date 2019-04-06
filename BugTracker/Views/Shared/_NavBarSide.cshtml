@@ -30,8 +30,16 @@
                         <a href="@Url.Action("Index", "ManageUser")"><i class="fa fa-table fa-fw"></i> Manage Users</a>
                     </li>
                 }
+
+                @if (User.IsInRole("Admin") || User.IsInRole("Project Manager"))
+                {
+                    <li>
+                        <a href="@Url.Action("Index", "Project")"><i class="fas fa-tasks"></i> All Projects</a>
+                    </li>
+                }
+
                 <li>
-                    <a href="@Url.Action("Index","Project")"><i class="fas fa-tasks"></i> All Projects</a>
+                    <a href="@Url.Action("MyProjects", "Project",new { userName = User.Identity.Name })"><i class="fa fa-table fa-fw"></i> My Projects</a>
                 </li>
             </ul>
         </div>
