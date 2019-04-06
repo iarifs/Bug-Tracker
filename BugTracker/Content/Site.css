@@ -24,3 +24,6 @@ select,
 textarea {
     max-width: 280px;
 }
+.table td {
+    text-align: center !important;
+}

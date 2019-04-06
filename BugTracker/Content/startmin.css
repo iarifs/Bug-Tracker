@@ -29,7 +29,10 @@ body {
 .navbar-header {
     float: left;
 }
-
+.navbar-inverse {
+    background-color: #34495e !important;
+    border: 0px;
+}
 .navbar-left {
     float: left;
 }

@@ -34,7 +34,6 @@ namespace BugTracker.Migrations
                                                 (context));
 
             const string ADMIN = "Admin";
-
             const string MANAGER = "Project Manager";
             const string DEVELOPER = "Developer";
             const string SUBMITTER = "Submitter";
@@ -61,7 +60,7 @@ namespace BugTracker.Migrations
                         UserName = ADMIN.ToLower() + "@mybugtracker.com",
                         Email = ADMIN.ToLower() + "@mybugtracker.com",
                         EmailConfirmed = true,
-                        ScreenName = "admin",
+                        ScreenName = "Admin",
                     };
 
                     userManager.Create(adminUser, "Password-1");
