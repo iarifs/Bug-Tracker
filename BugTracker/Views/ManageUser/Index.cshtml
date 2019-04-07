@@ -27,17 +27,15 @@
                     </div>
                     <!-- /.panel-heading -->
                     <div class="panel-body">
-                        <div class="table-responsive" >
-                            <table id ="user-table" class="table table-striped user-table">
+                        <div class="table-responsive">
+                            <table id="user-table" class="table table-striped user-table">
                                 <thead>
                                     <tr>
                                         <th class="name">
                                             Name
                                         </th>
-                                        <th class="username">
-                                            User Name
-                                        </th>
-                                        @foreach (var roleName in ViewBag.Roles)
+                                        <th class="username">user Name</th>
+                                        @foreach (var roleName in ViewBag.AllRolesInApp)
                                         {
                                             <th class="role">@roleName</th>
                                         }
@@ -51,30 +49,28 @@
                                             <td class="name">
                                                 @Html.DisplayFor(m => item.ScreenName)
                                             </td>
-                                            <td class="username">
+
+                                            <td class="username col-lg-1">
                                                 @Html.DisplayFor(m => item.UserName)
                                             </td>
 
-
-                                            @foreach (var roleName in ViewBag.Roles)
+                                            @foreach (var roleName in ViewBag.AllRolesInApp)
                                             {
                                                 <td class="role">
-                                                    @foreach (var role in item.Roles)
-                                                    {
-                                                        if (role == roleName)
-                                                        {
-                                                            <i class="text-success fas fa-check"></i>
-                                                        }
 
+                                                    @if (item.Roles.Any(p => p == roleName))
+                                                    {
+                                                        <i class="text-success fas fa-check"></i>
                                                     }
+
                                                 </td>
                                             }
-
                                             <td class="edit">
                                                 <a href=@Url.Action("ChangeUserRole", new { id = item.Id }) title="Edit Roles">
                                                     <i class="fas fa-user-edit"></i>
                                                 </a>
                                             </td>
+
                                         </tr>
                                     }
                                 </tbody>
@@ -88,53 +84,3 @@
         </div>
     </div>
 </div>
-
-
-@*
-                                        @foreach (var item in ViewBag.Roles)
-                                        {
-                                            <th class="role">
-                                                @item
-                                            </th>
-                                        }
-                                        <th class="edit"></th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    @foreach (var item in Model)
-                                    {
-                                        <tr>
-                                            <td class="name">
-                                                @Html.DisplayFor(m => item.ScreenName)
-                                            </td>
-                                            <td class="username col-lg-1">
-                                                @Html.DisplayFor(m => item.UserName)
-                                            </td>
-                                            @foreach (var role in item.Roles)
-                                            {
-                                                <td class="role">
-                                                    @if (role.Value)
-                                                    {
-                                                        <i class="fas fa-check green"></i>
-                                                    }
-                                                </td>
-                                            }
-                                            <td class="edit">
-                                                <a href=@Url.Action("ChangeUserRole", new { id = item.Id }) title="Edit Roles">
-                                                    <i class="fas fa-user-edit"></i>
-                                                </a>
-                                            </td>
-                                        </tr>
-                                    }
-                                </tbody>
-                            </table>
-                        </div>
-                        <!-- /.table-responsive -->
-                    </div>
-                    <!-- /.panel-body -->
-                </div>
-            </div>
-        </div>
-
-
-    </div>*@

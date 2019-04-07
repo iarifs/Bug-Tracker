@@ -26,12 +26,8 @@
                             <table id="members-table" class="table table-striped user-table">
                                 <thead>
                                     <tr>
-                                        <th class="name">
-                                            Name
-                                        </th>
-                                        <th class="Roles">
-                                            Roles
-                                        </th>
+                                        <th class="name"> Name</th>
+                                        <th class="Roles">Roles</th>
                                         <th class="Remove"></th>
                                     </tr>
                                 </thead>
@@ -46,16 +42,16 @@
                                             <td class="Roles">
                                                 @foreach (var role in item.AssignRoles)
                                                 {
-                                                    <i class="fas fa-user-tie">&nbsp;&nbsp;</i>@role
+                                                    <div><i class="fas fa-user-tie">&nbsp;&nbsp;</i>@role</div>
                                                 }
                                             </td>
+
                                             <td class="Remove">
                                                 <form method="post" action="@Url.Action("RemoveMember", "Project", new { userId = item.Id, projectId = Model.Id })">
                                                     <button type="submit" class="btn btn-danger">
                                                         Remove
                                                     </button>
                                                 </form>
-
                                             </td>
                                         </tr>
                                     }
@@ -78,9 +74,7 @@
                                         <th class="name">
                                             Name
                                         </th>
-                                        <th class="roles col-md-6">
-                                            Roles
-                                        </th>
+                                        <th class="roles col-md-6">Roles</th>
                                         <th class="add"></th>
                                     </tr>
                                 </thead>
@@ -96,7 +90,7 @@
                                                 <td>
                                                     @foreach (var role in item.Roles)
                                                     {
-                                                        <i class="fas fa-user-tie">&nbsp;&nbsp;</i>@role
+                                                    <div><i class="fas fa-user-tie">&nbsp;&nbsp;</i>@role</div>
                                                     }
                                                 </td>
                                                 <td>

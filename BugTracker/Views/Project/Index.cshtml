@@ -1,7 +1,9 @@
 ﻿@model  List<ProjectListViewModel>
 
 @{
-    ViewBag.Title = "Index";
+                /**/
+
+                ViewBag.Title = "Index";
 }
 
 @Html.Partial("_NavBarTop")
@@ -46,45 +48,45 @@
                                 <tbody>
                                     @foreach (var item in Model)
                                     {
-                                    <tr>
-                                        <td class="name">
-                                            @Html.DisplayFor(m => item.Name)
-                                        </td>
-                                        <td class="Members">
-                                            @Html.DisplayFor(m => item.NumbersOfUsers)
-                                        </td>
-                                        <td class="tickets">
-                                            @Html.DisplayFor(m => item.NumbersOfTickets)
-                                        </td>
+                                        <tr>
+                                            <td class="name">
+                                                @Html.DisplayFor(m => item.Name)
+                                            </td>
+                                            <td class="Members">
+                                                @Html.DisplayFor(m => item.NumbersOfUsers)
+                                            </td>
+                                            <td class="tickets">
+                                                @Html.DisplayFor(m => item.NumbersOfTickets)
+                                            </td>
 
-                                        <td class="created">
-                                            @Html.DisplayFor(m => item.DateCreated)
-                                        </td>
-                                        <td class="updated">
-                                            @Html.DisplayFor(m => item.DateUpdated)
-                                        </td>
+                                            <td class="created">
+                                                @Html.DisplayFor(m => item.DateCreated)
+                                            </td>
+                                            <td class="updated">
+                                                @Html.DisplayFor(m => item.DateUpdated)
+                                            </td>
 
 
-                                        <td class="edit">
-                                            <a href=@Url.Action("Edit","Project", new { id = item.Id }) title="Edit Projects">
-                                                <i class="btn fas fa-edit"></i>
-                                            </a>
-                                        </td>
-                                        <td class="add">
-                                            <a href=@Url.Action("ChangeMember","Project", new { id = item.Id }) title="Change Member">
-                                                <i class="btn fas fa-users"></i>
-                                            </a>
-                                        </td>
+                                            <td class="edit">
+                                                <a href=@Url.Action("Edit","Project", new { id = item.Id }) title="Edit Projects">
+                                                    <i class="btn fas fa-edit"></i>
+                                                </a>
+                                            </td>
+                                            <td class="add">
+                                                <a href=@Url.Action("ChangeMember","Project", new { id = item.Id }) title="Change Member">
+                                                    <i class="btn fas fa-users"></i>
+                                                </a>
+                                            </td>
 
-                                        <td class="delete">
-                                            <form method="post" action="@Url.Action("Delete", "Project", new { id = item.Id })">
-                                                <button type="submit" class="btn btn-danger">
-                                                    <i class="fas fa-trash-alt"></i>
-                                                </button>
-                                            </form>
-                                        </td>
+                                            <td class="delete">
+                                                <form method="post" action="@Url.Action("Delete", "Project", new { id = item.Id })">
+                                                    <button type="submit" class="btn btn-danger">
+                                                        <i class="fas fa-trash-alt"></i>
+                                                    </button>
+                                                </form>
+                                            </td>
 
-                                    </tr>
+                                        </tr>
                                     }
                                 </tbody>
                             </table>

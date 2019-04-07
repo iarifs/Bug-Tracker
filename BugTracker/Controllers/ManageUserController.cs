@@ -18,14 +18,18 @@ namespace BugTracker.Controllers
         private ApplicationDbContext db = new ApplicationDbContext();
 
         private RoleManager<IdentityRole> roleManager;
+
         private UserManager<ApplicationUser> userManager;
+
         private UserRolesHelper roleHelper;
 
         public ManageUserController()
         {
-            roleManager = new RoleManager<IdentityRole>(new RoleStore<IdentityRole>(db));
+            roleManager = new RoleManager<IdentityRole>
+                            (new RoleStore<IdentityRole>(db));
             userManager = new UserManager<ApplicationUser>
-                            (new UserStore<ApplicationUser>(new ApplicationDbContext()));
+                            (new UserStore<ApplicationUser>
+                                (new ApplicationDbContext()));
             roleHelper = new UserRolesHelper(db);
 
         }
@@ -38,13 +42,12 @@ namespace BugTracker.Controllers
                 Id = p.Id,
                 UserName = p.UserName,
                 ScreenName = p.ScreenName,
-
+                Roles = (from userRoles in p.Roles
+                         join roles in db.Roles on userRoles.RoleId equals roles.Id
+                         select roles.Name).ToList(),
             }).ToList();
 
-            users.ForEach(p => p.Roles = roleHelper.ListUserRoles(p.Id).ToList());
-
-            ViewBag.roles = roleManager.Roles
-                .Select(p => p.Name).ToList();
+            ViewBag.AllRolesInApp = roleManager.Roles.Select(p => p.Name).ToList();
 
             return View(users);
         }
@@ -62,23 +65,18 @@ namespace BugTracker.Controllers
                 return View("Error");
             }
 
-            var model = userManager.Users
+            var model = db.Users
                 .Where(p => p.Id == id)
                 .Select(n => new UserListViewModel()
                 {
                     Id = n.Id,
                     UserName = n.UserName,
                     ScreenName = n.ScreenName,
-
                 }).FirstOrDefault();
-
-            var allRoles = roleManager.Roles
-                .Select(p => p.Name).ToList();
 
             model.Roles = roleHelper.ListUserRoles(id).ToList();
 
-            ViewBag.AllRoles = roleManager.Roles
-                .Select(p => p.Name).ToList();
+            ViewBag.AllRolesInApp = roleManager.Roles.Select(p => p.Name).ToList();
 
             return View(model);
         }
@@ -86,9 +84,6 @@ namespace BugTracker.Controllers
         [HttpPost]
         public ActionResult ChangeUserRole(string id, List<string> Roles)
         {
-            var allRoles = roleManager.Roles
-                .Select(p => p.Name).ToList();
-
             var userRoles = userManager.GetRoles(id);
 
             var user = userManager.FindById(id);
@@ -99,11 +94,13 @@ namespace BugTracker.Controllers
             }
             else
             {
+                //first remove all the roles and then add roles that are passing
                 userManager.RemoveFromRoles(id, userRoles.ToArray());
+
                 userManager.AddToRoles(id, Roles.ToArray());
             }
 
-            return RedirectToAction("Index", "ManageUser");
+            return RedirectToAction(nameof(ManageController.Index));
         }
     }
 }

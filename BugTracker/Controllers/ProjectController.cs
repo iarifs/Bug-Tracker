@@ -14,7 +14,7 @@ namespace BugTracker.Controllers
     {
         ApplicationDbContext Db = new ApplicationDbContext();
         UserRolesHelper rolehelper;
-
+            
         public ProjectController()
         {
             rolehelper = new UserRolesHelper(Db);
@@ -30,6 +30,7 @@ namespace BugTracker.Controllers
                 DateCreated = n.DateCreated,
                 DateUpdated = n.DateUpdated,
                 NumbersOfUsers = n.Users.Count,
+
             }).ToList();
 
 

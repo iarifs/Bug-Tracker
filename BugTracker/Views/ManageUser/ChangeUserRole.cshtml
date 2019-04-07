@@ -33,7 +33,7 @@
                             @Html.AntiForgeryToken()
                             @Html.ValidationSummary("", new { @class = "text-danger" })
 
-                            foreach (var role in ViewBag.AllRoles)
+                            foreach (var role in ViewBag.AllRolesInApp)
                             {
                                 <div>
                                     <input type="checkbox" name="Roles" id="@role" value="@role" @(Model.Roles.Any(p => p == role) ? "checked" : "") />
