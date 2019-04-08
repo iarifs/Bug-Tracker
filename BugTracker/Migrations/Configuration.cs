@@ -1,6 +1,7 @@
 namespace BugTracker.Migrations
 {
     using BugTracker.Models;
+    using BugTracker.Models.Domain;
     using Microsoft.AspNet.Identity;
     using Microsoft.AspNet.Identity.EntityFramework;
     using System;
@@ -47,6 +48,21 @@ namespace BugTracker.Migrations
 
             CreateUser(ADMIN);
 
+            //seeding info related to Ticket
+
+            SeedTicketTypes(nameof(TypesOfTickets.Bug));
+            SeedTicketTypes(nameof(TypesOfTickets.Database));
+            SeedTicketTypes(nameof(TypesOfTickets.Feature));
+            SeedTicketTypes(nameof(TypesOfTickets.Support));
+
+            SeedTicketStatus(nameof(TypesOfTicketStatuses.Open));
+            SeedTicketStatus(nameof(TypesOfTicketStatuses.Resolved));
+            SeedTicketStatus(nameof(TypesOfTicketStatuses.Rejected));
+
+
+            SeedTicketPriorities(nameof(TypesOfTicektPriorites.High));
+            SeedTicketPriorities(nameof(TypesOfTicektPriorites.Medium));
+            SeedTicketPriorities(nameof(TypesOfTicektPriorites.Low));
 
 
             //Function for seeding admin user.
@@ -84,6 +100,33 @@ namespace BugTracker.Migrations
                     var Role = new IdentityRole(position);
                     roleManager.Create(Role);
                 }
+            }
+
+            void SeedTicketTypes(string name)
+            {
+                if(!context.TicketTypes.Any(p => p.Name == name))
+                {
+                    context.TicketTypes.Add(new TicketType { Name = name });   
+                }
+                context.SaveChanges();
+            }
+
+            void SeedTicketStatus(string name)
+            {
+                if(!context.TicketStatuses.Any(p => p.Name == name))
+                {
+                    context.TicketStatuses.Add(new TicketStatus { Name = name });
+                }
+                context.SaveChanges();
+            }
+
+            void SeedTicketPriorities(string name)
+            {
+                if(!context.TicketPriorites.Any(p => p.Name == name))
+                {
+                    context.TicketPriorites.Add(new TicketPriority { Name = name });
+                }
+                context.SaveChanges();
             }
 
         }
