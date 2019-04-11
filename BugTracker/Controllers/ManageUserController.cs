@@ -29,7 +29,7 @@ namespace BugTracker.Controllers
                             (new RoleStore<IdentityRole>(db));
             userManager = new UserManager<ApplicationUser>
                             (new UserStore<ApplicationUser>
-                                (new ApplicationDbContext()));
+                                (db));
             roleHelper = new UserRolesHelper(db);
 
         }

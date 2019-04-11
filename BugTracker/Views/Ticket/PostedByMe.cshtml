@@ -1,0 +1,92 @@
+﻿@model List<TicketIndexViewModel>
+@{
+    ViewBag.Title = "Posted by me";
+}
+
+
+@Html.Partial("_NavBarTop")
+@Html.Partial("_NavBarSide")
+
+
+<div id="page-wrapper">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-12">
+                <h1 class="page-header">My Tickets</h1>
+            </div>
+            <!-- /.col-lg-12 -->
+        </div>
+        <div class="row">
+            <div class="col-lg-12 col-md-6">
+                <div class="panel panel-green">
+                    <div class="panel-heading">
+                       Tickets - Posted by me
+                    </div>
+                    <div class="panel-body">
+                        <div class="table-responsive">
+                            <table id="user-table" class="table table-striped user-table">
+                                <thead>
+                                    <tr>
+                                        <th class="project">Projects</th>
+                                        <th class="title">Title</th>
+                                        <th class="edit"></th>
+                                        <th class="created">Date Created</th>
+                                        <th class="updated">Date Updated</th>
+                                        <th class="type">Ticket Type</th>
+                                        <th class="status">Ticket Status</th>
+                                        <th class="priority">Ticket Priority</th>
+                                        <th class="creator">Created By</th>
+                                        <th class="developer">Assigned Developer</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach (var item in Model)
+                                    {
+                                        <tr>
+                                            <td class="project">
+                                                @Html.DisplayFor(m => item.ProjectName)
+                                            </td>
+                                            <td class="title">
+                                                @Html.DisplayFor(m => item.Title)
+                                            </td>
+                                            <td class="edit">
+                                                <a href=@Url.Action("Edit","Ticket", new { id = item.Id }) title="Edit Ticket">
+                                                    <i class="btn fas fa-edit"></i>
+                                                </a>
+                                            </td>
+                                            <td class="created">
+                                                @Html.DisplayFor(m => item.DateCreated)
+                                            </td>
+
+                                            <td class="updated">
+                                                @Html.DisplayFor(m => item.DateUpdated)
+                                            </td>
+                                            <td class="type">
+                                                @Html.DisplayFor(m => item.TicketTypeName)
+                                            </td>
+                                            <td class="status">
+                                                @Html.DisplayFor(m => item.TicketStatusName)
+                                            </td>
+                                            <td class="priority">
+                                                @Html.DisplayFor(m => item.TicketPriorityName)
+                                            </td>
+                                            <td class="creator">
+                                                @Html.DisplayFor(m => item.OwnerUserScreenName)
+                                            </td>
+                                            <td class="developer">
+                                                @Html.DisplayFor(m => item.AssignedToUserScreenName)
+                                            </td>
+                                        </tr>
+                                    }
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+</div>
+

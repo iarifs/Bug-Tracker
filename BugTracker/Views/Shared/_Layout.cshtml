@@ -23,9 +23,15 @@
     @RenderSection("scripts", required: false)
 
     <script src="//cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+
     <script>
         $(document).ready(function () {
             $('#user-table').DataTable();
+            $("#active-dropdown").click(function (e) {
+                $("#dropdown-menu").toggle("slow", function () {
+                });
+                $("#drop-icon").toggleClass("fa-chevron-down fa-angle-left");
+            })
         });
     </script>
 </body>

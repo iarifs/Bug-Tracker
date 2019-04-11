@@ -25,6 +25,18 @@ select,
 textarea {
     max-width: 280px;
 }
+
 .table td, .table th {
     text-align: center !important;
+}
+
+#drop-icon {
+    position: absolute;
+    right: 0;
+    padding-right: 15px;
+    font-size: 20px;
+}
+
+#dropdown-menu{
+    display:none;
 }

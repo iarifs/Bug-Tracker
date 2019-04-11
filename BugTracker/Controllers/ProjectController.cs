@@ -80,21 +80,6 @@ namespace BugTracker.Controllers
             return ProjectCreator(id, form);
         }
 
-        [HttpPost]
-        public ActionResult Delete(int? Id)
-        {
-            if (!Id.HasValue)
-            {
-                return RedirectToAction(nameof(ProjectController.Index));
-            }
-
-            var project = Db.Projects.FirstOrDefault(p => p.Id == Id);
-
-            Db.Projects.Remove(project);
-            Db.SaveChanges();
-            return RedirectToAction(nameof(ProjectController.Index));
-        }
-
         [HttpGet]
         public ActionResult ChangeMember(int id)
         {

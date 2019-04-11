@@ -37,11 +37,48 @@
                         <a href="@Url.Action("Index", "Project")"><i class="fas fa-tasks"></i> All Projects</a>
                     </li>
                 }
-            
+
                 <li>
                     <a href="@Url.Action("MyProjects", "Project")"><i class="fa fa-table fa-fw"></i> My Projects</a>
+                </li>
+                <li id="active-dropdown">
+                    <a href="#"><i id ="drop-icon"class="fas fa-chevron-down"></i>Tickets</a>
+                    <ul id="dropdown-menu" class="nav nav-second-level">
+                        @if (User.IsInRole("Submitter"))
+                        {
+                            <li>
+                                <a href=@Url.Action("Create", "Ticket") title="Create a New Ticket">
+                                    <i class="fas fa-plus fa-fw"></i> New
+                                </a>
+                            </li>
+                        }
+                        <li>
+                            @Html.ActionLink("All Tickets", "Index", "Ticket")
+                        </li>
+                        @if (User.IsInRole("Project Manager") || User.IsInRole("Developer"))
+                        {
+                            <li>
+                                @Html.ActionLink("From My Projects", "FromMyProjects", "Ticket")
+                            </li>
+                        }
+                        @if (User.IsInRole("Developer"))
+                        {
+                            <li>
+                                @Html.ActionLink("Assigned to Me", "AssignedToMe", "Ticket")
+                            </li>
+                        }
+                        @if (User.IsInRole("Submitter"))
+                        {
+                            <li>
+                                @Html.ActionLink("Posted by Me", "PostedByMe", "Ticket")
+                            </li>
+                        }
+                    </ul>
                 </li>
             </ul>
         </div>
     </div>
 </nav>
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

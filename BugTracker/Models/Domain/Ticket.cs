@@ -10,8 +10,8 @@ namespace BugTracker.Models.Domain
         public int Id { get; set; }
         public string Title { get; set; }
         public string Description { get; set; }
-        public DateTime Created { get; set; }
-        public DateTime? Updated { get; set; }
+        public DateTime DateCreated { get; set; }
+        public DateTime? DateUpdated { get; set; }
 
         public int ProjectId { get; set; }
         public Project Project { get; set; }
@@ -25,13 +25,16 @@ namespace BugTracker.Models.Domain
         public int TicketPriorityId { get; set; }
         public TicketPriority TicketPriority { get; set; }
 
-        public string OwnerUserId { get;set; }
+        public string OwnerUserId { get; set; }
         public virtual ApplicationUser OwnerUser { get; set; }
 
-        public string AssignedToUserId { get;set; }
+        public string AssignedToUserId { get; set; }
         public virtual ApplicationUser AssignedToUser { get; set; }
 
-
+        public Ticket()
+        {
+            DateCreated = DateTime.Now;
+        }
 
     }
 }
