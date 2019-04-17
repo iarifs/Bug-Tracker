@@ -1,0 +1,1946 @@
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html" />
+        <meta name="author" content="Manitoba Public Insurance" />
+<title>
+Manitoba Public Insurance > Driving Quiz
+</title>
+<meta name="viewport" content="width=device-width">
+<!--<link rel="stylesheet" href="../../../MPI.css">-->
+<link rel="stylesheet" type="text/css" href="../mpi_styles_app.css">
+
+<script type="text/javascript">
+<!--
+window["_csrf_"] = "086933a40e8468004535692e77947cf082eea5660260927b2f8cd6bc752cdcf7fd1213d28bcc7ca14fd29d452d71ee876d0db4678a6f0b6af3f38e4104d83efc9c41c4f13c7e1caa5e00f81e14db518a4cbcab93752cee46fa6ca6c2ba6d834d3131eba72b486fcef7689a2f2e509de9";
+//-->
+</script>
+<script type="text/javascript" src="/TSbd/0881c6dd3aab2000f36bae90e44ca37542d0e1b1f9071ac2723582960fc7ec14ff725c65e6a9567c?type=2"></script>
+<script language="JavaScript">
+<!--
+function MM_swapImgRestore() { //v3.0
+  var i,x,a=document.MM_sr; for(i=0;a&&i<a.length&&(x=a[i])&&x.oSrc;i++) x.src=x.oSrc;
+}
+
+function MM_preloadImages() { //v3.0
+  var d=document; if(d.images){ if(!d.MM_p) d.MM_p=new Array();
+    var i,j=d.MM_p.length,a=MM_preloadImages.arguments; for(i=0; i<a.length; i++)
+    if (a[i].indexOf("#")!=0){ d.MM_p[j]=new Image; d.MM_p[j++].src=a[i];}}
+}
+
+function MM_findObj(n, d) { //v3.0
+  var p,i,x;  if(!d) d=document; if((p=n.indexOf("?"))>0&&parent.frames.length) {
+    d=parent.frames[n.substring(p+1)].document; n=n.substring(0,p);}
+  if(!(x=d[n])&&d.all) x=d.all[n]; for (i=0;!x&&i<d.forms.length;i++) x=d.forms[i][n];
+  for(i=0;!x&&d.layers&&i<d.layers.length;i++) x=MM_findObj(n,d.layers[i].document); return x;
+}
+
+function MM_swapImage() { //v3.0
+  var i,j=0,x,a=MM_swapImage.arguments; document.MM_sr=new Array; for(i=0;i<(a.length-2);i+=3)
+   if ((x=MM_findObj(a[i]))!=null){document.MM_sr[j++]=x; if(!x.oSrc) x.oSrc=x.src; x.src=a[i+2];}
+}
+//-->
+</script>
+
+<script language="JavaScript">
+<!--
+function MM_reloadPage(init) {  //reloads the window if Nav4 resized
+  if (init==true) with (navigator) {if ((appName=="Netscape")&&(parseInt(appVersion)==4)) {
+    document.MM_pgW=innerWidth; document.MM_pgH=innerHeight; onresize=MM_reloadPage; }}
+  else if (innerWidth!=document.MM_pgW || innerHeight!=document.MM_pgH) location.reload();
+}
+MM_reloadPage(true);
+// -->
+</script>
+
+<script language="JavaScript">
+<!--
+var w = 0;
+var h = 0;
+
+function deadCenter(w,h) {
+        if (window.screen) {
+var chasm = screen.availWidth;
+var mount = screen.availHeight;
+  subWindow = window.open('../../broker/english/broker.html','sub','width=' + w + ',height=' + h + ',left=' + ((chasm - w - 10) * .5) + ',menubar=yes,scrollbars=yes,resizable=yes,titlebar=no, top=' + ((mount - h - 30) * .5));
+        }
+}
+
+//-->
+</script>
+
+
+<style>
+.SubheadTeal {
+        font-family: Verdana, Arial, Helvetica, sans-serif;
+        font-weight: bold;
+        color: #007683;
+
+}
+
+        a:link {  text-decoration: none}
+a:active {  text-decoration: underline; font-weight: bold}
+a:visited {  color: DF5432; text-decoration: none}
+</style>
+</head>
+
+
+
+
+<body bgcolor="#ffffff">
+
+
+<!-- Header Start -->
+<div id="mpi_top_container">
+        <div class="mpi_content_anchor_app">
+            <div id="mpi_top" class="cf">
+                <span id="mpi_header_logo">
+                    <h1><b>Manitoba Public Insurance | Soci&eacute;t&eacute; d'assurance publique du Manitoba</b></h1>
+                </span>
+            </div>
+        </div>
+</div>
+
+<!-- Header End -->
+
+
+
+<!-- Nav Start -->
+<div id="mpi_nav_container">
+        <div class="mpi_content_anchor_app">
+            <div id="mpi_nav" class="cf">
+                <div id="mpi_menu_anchor">
+                    <!-- Start Mega Menu -->
+                    <ul id="nav" class="main_nav">
+                        <li class="display_root display_menu_visible">
+                            <a class="primary_link" href="http://www.mpi.mb.ca/en/"><span>Manitoba Public Insurance Home</span></a>
+                        </li>
+                    </ul>
+                <!-- End Mega Menu -->
+                </div>
+            </div>
+        </div>
+</div>
+<!-- Nav End -->
+
+
+
+
+<!--<div id="Layer8" style="Z-INDEX: 9; LEFT: 120px; WIDTH: 640px; POSITION: absolute; TOP: 183px; HEIGHT: 100%">-->
+
+<div id="mpi_app_content">
+        <div id="mpi_app_wrapper">
+
+        <!--<DIV id=Layer3 style="Z-INDEX: 3; LEFT: 115px; POSITION: absolute; ">
+<TABLE cellSpacing=0 cellPadding=0 width=645 border=0>
+  <TR>
+    <TD width=490>&nbsp;</TD>
+    <TD width=237><SPAN class=topnav>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<A class=topnav
+      href="../..//dr_quiz/startdrivingquiz.asp?L=E"><font size="-1">Start New
+      Quiz</font></SPAN></A></TD>
+    <TD width=200></TD></TR>
+  <TR>
+         <TD width=490>&nbsp;</TD>
+     <TD width=237><SPAN class=topnav>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<A class=topnav
+      href="http://www.mpi.mb.ca/en/DL/DL/DSR/Pages/DSROverview.aspx"><font size="-1">Driver Safety Rating
+      </font></SPAN></A></TD>
+    <TD width=200></TD></TR>
+    </TABLE>
+<P>&nbsp;</P>
+</DIV>
+
+
+<div id="Layer2" style="Z-INDEX: 2; LEFT: 115px; POSITION: absolute;">
+<img src="../../Images/DriveQuiz/H_quiz.gif"   alt="Driving Quizzes Header">
+</div>
+<P>&nbsp;</P>
+<br />-->
+
+
+ <!-- App Header -->
+        <div id="mpi_app_page_head">
+        <div id="mpi_app_headline">
+            Driving Quizzes
+        </div>
+        <div id="mpi_app_headline_nav" class="cf">
+
+            <div id="mpi_app_centeredfloat">
+              <ul>
+                <li><a href="../../dr_quiz/startdrivingquiz.asp?L=E">Start New Quiz</a></li>
+                <li class="mpi_app_menu_last"><a href="http://www.mpi.mb.ca/en/DL/DL/DSR/Pages/DSROverview.aspx">Driver Safety Rating</a></li>
+              </ul>
+            </div>
+        </div>
+    </div>
+    <!-- App Header Ends -->
+
+            <!-- App Content Here -->
+
+<table width="100%" border="0">
+  <tr>
+        <td height="1063" valign="top" width="78%">
+        <p>
+
+</p>
+                <table width="100%" border="0">
+                        <tr>
+                                <td height="22">
+                                        <table width="36%" border="0">
+                                                <tr bgcolor="#000000">
+                                                        <td height="19" width="60%"><font color="#FFFFFF"><b><font face="Arial, Helvetica, sans-serif">
+
+                                                                         &nbsp;Your Score:</font></b></font>
+                                                        </td>
+
+                                                        <td height="19" width="40%">
+                                                                <div align="center"><font color="#FFFFFF"><b><font face="Arial, Helvetica, sans-serif">
+                                                                        0 / 20</font></b></font></div>
+                                                        </td>
+                                                </tr>
+                                        </table>
+                                </td>
+                        </tr>
+                        <tr>
+                                <td>
+                                        <img src="../images/DriveQuiz/Class5/rs_DQ_Rslt_1.gif"  align="top">
+                                </td>
+                        </tr>
+            <tr>
+
+                                        <td height="31" align="left">
+                                     <font size="-1" face="Verdana, Arial, Helvetica, sans-serif" color="#CC0000"><b>
+                                              <a href="QuizFeedback.asp">Submit Feedback or Questions on This Quiz</a></b>
+                                         </font>
+                                        </td>
+             </tr>
+
+    </td>
+  </table>
+
+  <hr>
+  <table width="100%" border="0">
+
+                <tr>
+                        <td width="4%" height="26" valign="top">
+                                <span class="textBold"><font size="-1">1</font></span>
+                        </td>
+
+            <td colspan="99%" height="26" valign="top">
+                                <span class="textBold"><font size="-1"> The police have stopped and asked you to provide an alcohol breath sample. If you refuse you may lose your driver's licence for a minimum of three months:</font></span>
+            </td>
+        </tr>
+        <tr>
+
+                                                <td width="4%">&nbsp;</td>
+                        <td width="3%" valign="top">
+                                                        <span class="text"><font size="-1">a.   </font></span>
+                                                </td>
+                        <td width="2%" valign="top">
+                                                        <INPUT TYPE = RADIO NAME = Question1 VALUE = a.    >
+                         </td>
+                                             <td colspan ="96%" valign="top">
+
+                                                                        <span class="text"><font size="-1">only if you are convicted of driving while under the influence of alcohol</font></span>
+                                                                </td>
+                </tr>
+
+
+  </tr>
+
+                                                <td width="4%">&nbsp;</td>
+                        <td width="3%" valign="top">
+                                                        <span class="text"><font size="-1">b.   </font></span>
+                                                </td>
+                        <td width="2%" valign="top">
+                                                        <INPUT TYPE = RADIO NAME = Question1 VALUE = b.    >
+                         </td>
+                                             <td colspan ="96%" valign="top">
+
+                                                                        <span class="text"><font size="-1">only if you are convicted of a major traffic violation</font></span>
+                                                                </td>
+                </tr>
+
+
+  </tr>
+
+                                                <td width="4%">&nbsp;</td>
+                        <td width="3%" valign="top">
+                                                        <span class="text"><font size="-1">c.   </font></span>
+                                                </td>
+                        <td width="2%" valign="top">
+                                                        <INPUT TYPE = RADIO NAME = Question1 VALUE = c.    >
+                         </td>
+                                             <td colspan ="96%" valign="top">
+                                                        <span class="textBoldBlue"><font size="-1">automatically because you have refused to take the test</font></span><IMG height=12 alt="" src="../images/DriveQuiz/checkmark2.gif" width=12>
+                                                                </td>
+                </tr>
+
+
+  </tr>
+
+                                                <td width="4%">&nbsp;</td>
+                        <td width="3%" valign="top">
+                                                        <span class="text"><font size="-1">d.   </font></span>
+                                                </td>
+                        <td width="2%" valign="top">
+                                                        <INPUT TYPE = RADIO NAME = Question1 VALUE = d.    >
+                         </td>
+                                             <td colspan ="96%" valign="top">
+
+                                                                        <span class="text"><font size="-1">none of the above are true</font></span>
+                                                                </td>
+                </tr>
+
+
+  </tr>
+
+     <tr>
+                <td colspan="100%"><hr></td>
+         </tr>
+
+                <tr>
+                        <td width="4%" height="26" valign="top">
+                                <span class="textBold"><font size="-1">2</font></span>
+                        </td>
+
+            <td colspan="99%" height="26" valign="top">
+                                <span class="textBold"><font size="-1"> Alcohol's effect on your reflexes and judgement:</font></span>
+            </td>
+        </tr>
+        <tr>
+
+                                                <td width="4%">&nbsp;</td>
+                        <td width="3%" valign="top">
+                                                        <span class="text"><font size="-1">a.   </font></span>
+                                                </td>
+                        <td width="2%" valign="top">
+                                                        <INPUT TYPE = RADIO NAME = Question2 VALUE = a.    >
+                         </td>
+                                             <td colspan ="96%" valign="top">
+
+                                                                        <span class="text"><font size="-1">is less if you only drink beer</font></span>
+                                                                </td>
+                </tr>
+
+
+  </tr>
+
+                                                <td width="4%">&nbsp;</td>
+                        <td width="3%" valign="top">
+                                                        <span class="text"><font size="-1">b.   </font></span>
+                                                </td>
+                        <td width="2%" valign="top">
+                                                        <INPUT TYPE = RADIO NAME = Question2 VALUE = b.    >
+                         </td>
+                                             <td colspan ="96%" valign="top">
+
+                                                                        <span class="text"><font size="-1">is less if you only drink wine</font></span>
+                                                                </td>
+                </tr>
+
+
+  </tr>
+
+                                                <td width="4%">&nbsp;</td>
+                        <td width="3%" valign="top">
+                                                        <span class="text"><font size="-1">c.   </font></span>
+                                                </td>
+                        <td width="2%" valign="top">
+                                                        <INPUT TYPE = RADIO NAME = Question2 VALUE = c.    >
+                         </td>
+                                             <td colspan ="96%" valign="top">
+
+                                                                        <span class="text"><font size="-1">is greater if you drink whiskey or hard liquor</font></span>
+                                                                </td>
+                </tr>
+
+
+  </tr>
+
+                                                <td width="4%">&nbsp;</td>
+                        <td width="3%" valign="top">
+                                                        <span class="text"><font size="-1">d.   </font></span>
+                                                </td>
+                        <td width="2%" valign="top">
+                                                        <INPUT TYPE = RADIO NAME = Question2 VALUE = d.    >
+                         </td>
+                                             <td colspan ="96%" valign="top">
+                                                        <span class="textBoldBlue"><font size="-1">depends on the amount of alcohol in your blood stream</font></span><IMG height=12 alt="" src="../images/DriveQuiz/checkmark2.gif" width=12>
+                                                                </td>
+                </tr>
+
+
+  </tr>
+
+        <tr>
+           <td width="4%">&nbsp;</td>
+           <td colspan = "96%"><font size="-1" face="Verdana, Arial, Helvetica, sans-serif" color = "#0000CC"><font color="#000000">
+
+        <a href=http://www.mpi.mb.ca/en/rd-safety/tips/60-sec-driver/pages/drinkinganddriving.aspx target="_self" color = "#0000CC">View more information on this topic.</a></font>
+
+       </font></td>
+     </tr>
+
+     <tr>
+                <td colspan="100%"><hr></td>
+         </tr>
+
+                <tr>
+                        <td width="4%" height="26" valign="top">
+                                <span class="textBold"><font size="-1">3</font></span>
+                        </td>
+
+            <td colspan="99%" height="26" valign="top">
+                                <span class="textBold"><font size="-1"> You are driving and it begins to rain.  You should:</font></span>
+            </td>
+        </tr>
+        <tr>
+
+                                                <td width="4%">&nbsp;</td>
+                        <td width="3%" valign="top">
+                                                        <span class="text"><font size="-1">a.   </font></span>
+                                                </td>
+                        <td width="2%" valign="top">
+                                                        <INPUT TYPE = RADIO NAME = Question3 VALUE = a.    >
+                         </td>
+                                             <td colspan ="96%" valign="top">
+
+                                                                        <span class="text"><font size="-1">drive faster than other traffic</font></span>
+                                                                </td>
+                </tr>
+
+
+  </tr>
+
+                                                <td width="4%">&nbsp;</td>
+                        <td width="3%" valign="top">
+                                                        <span class="text"><font size="-1">b.   </font></span>
+                                                </td>
+                        <td width="2%" valign="top">
+                                                        <INPUT TYPE = RADIO NAME = Question3 VALUE = b.    >
+                         </td>
+                                             <td colspan ="96%" valign="top">
+
+                                                                        <span class="text"><font size="-1">drive at no faster than the maximum posted speed</font></span>
+                                                                </td>
+                </tr>
+
+
+  </tr>
+
+                                                <td width="4%">&nbsp;</td>
+                        <td width="3%" valign="top">
+                                                        <span class="text"><font size="-1">c.   </font></span>
+                                                </td>
+                        <td width="2%" valign="top">
+                                                        <INPUT TYPE = RADIO NAME = Question3 VALUE = c.    >
+                         </td>
+                                             <td colspan ="96%" valign="top">
+                                                        <span class="textBoldBlue"><font size="-1">slow down and allow for weather conditions</font></span><IMG height=12 alt="" src="../images/DriveQuiz/checkmark2.gif" width=12>
+                                                                </td>
+                </tr>
+
+
+  </tr>
+
+                                                <td width="4%">&nbsp;</td>
+                        <td width="3%" valign="top">
+                                                        <span class="text"><font size="-1">d.   </font></span>
+                                                </td>
+                        <td width="2%" valign="top">
+                                                        <INPUT TYPE = RADIO NAME = Question3 VALUE = d.    >
+                         </td>
+                                             <td colspan ="96%" valign="top">
+
+                                                                        <span class="text"><font size="-1">drive close behind the vehicle ahead</font></span>
+                                                                </td>
+                </tr>
+
+
+  </tr>
+
+        <tr>
+           <td width="4%">&nbsp;</td>
+           <td colspan = "96%"><font size="-1" face="Verdana, Arial, Helvetica, sans-serif" color = "#0000CC"><font color="#000000">
+
+        <a href=http://www.mpi.mb.ca/en/rd-safety/tips/60-sec-driver/pages/brakingonwetroads.aspx target="_self" color = "#0000CC">View more information on this topic.</a></font>
+
+       </font></td>
+     </tr>
+
+     <tr>
+                <td colspan="100%"><hr></td>
+         </tr>
+
+                <tr>
+                        <td width="4%" height="26" valign="top">
+                                <span class="textBold"><font size="-1">4</font></span>
+                        </td>
+
+            <td colspan="99%" height="26" valign="top">
+                                <span class="textBold"><font size="-1"> Hazard warning signals (4-way flashers) warn other drivers that a vehicle is in a hazardous position on the roadway. The signal should be used when:</font></span>
+            </td>
+        </tr>
+        <tr>
+
+                                                <td width="4%">&nbsp;</td>
+                        <td width="3%" valign="top">
+                                                        <span class="text"><font size="-1">a.   </font></span>
+                                                </td>
+                        <td width="2%" valign="top">
+                                                        <INPUT TYPE = RADIO NAME = Question4 VALUE = a.    >
+                         </td>
+                                             <td colspan ="96%" valign="top">
+
+                                                                        <span class="text"><font size="-1">your vehicle is stalled on a highway</font></span>
+                                                                </td>
+                </tr>
+
+
+  </tr>
+
+                                                <td width="4%">&nbsp;</td>
+                        <td width="3%" valign="top">
+                                                        <span class="text"><font size="-1">b.   </font></span>
+                                                </td>
+                        <td width="2%" valign="top">
+                                                        <INPUT TYPE = RADIO NAME = Question4 VALUE = b.    >
+                         </td>
+                                             <td colspan ="96%" valign="top">
+
+                                                                        <span class="text"><font size="-1">your speed is well below the speed limit</font></span>
+                                                                </td>
+                </tr>
+
+
+  </tr>
+
+                                                <td width="4%">&nbsp;</td>
+                        <td width="3%" valign="top">
+                                                        <span class="text"><font size="-1">c.   </font></span>
+                                                </td>
+                        <td width="2%" valign="top">
+                                                        <INPUT TYPE = RADIO NAME = Question4 VALUE = c.    >
+                         </td>
+                                             <td colspan ="96%" valign="top">
+
+                                                                        <span class="text"><font size="-1">performing emergency vehicle maintenance on the road shoulder</font></span>
+                                                                </td>
+                </tr>
+
+
+  </tr>
+
+                                                <td width="4%">&nbsp;</td>
+                        <td width="3%" valign="top">
+                                                        <span class="text"><font size="-1">d.   </font></span>
+                                                </td>
+                        <td width="2%" valign="top">
+                                                        <INPUT TYPE = RADIO NAME = Question4 VALUE = d.    >
+                         </td>
+                                             <td colspan ="96%" valign="top">
+                                                        <span class="textBoldBlue"><font size="-1">all of the above</font></span><IMG height=12 alt="" src="../images/DriveQuiz/checkmark2.gif" width=12>
+                                                                </td>
+                </tr>
+
+
+  </tr>
+
+        <tr>
+           <td width="4%">&nbsp;</td>
+           <td colspan = "96%"><font size="-1" face="Verdana, Arial, Helvetica, sans-serif" color = "#0000CC"><font color="#000000">
+
+        <a href=http://www.mpi.mb.ca/en/rd-safety/tips/60-sec-driver/pages/collisionprocedures.aspx target="_self" color = "#0000CC">View more information on this topic.</a></font>
+
+       </font></td>
+     </tr>
+
+     <tr>
+                <td colspan="100%"><hr></td>
+         </tr>
+
+                <tr>
+                        <td width="4%" height="26" valign="top">
+                                <span class="textBold"><font size="-1">5</font></span>
+                        </td>
+
+            <td colspan="99%" height="26" valign="top">
+                                <span class="textBold"><font size="-1"> You may pass another vehicle:</font></span>
+            </td>
+        </tr>
+        <tr>
+
+                                                <td width="4%">&nbsp;</td>
+                        <td width="3%" valign="top">
+                                                        <span class="text"><font size="-1">a.   </font></span>
+                                                </td>
+                        <td width="2%" valign="top">
+                                                        <INPUT TYPE = RADIO NAME = Question5 VALUE = a.    >
+                         </td>
+                                             <td colspan ="96%" valign="top">
+
+                                                                        <span class="text"><font size="-1">on a curve or a hill because the chance is small that another vehicle is coming</font></span>
+                                                                </td>
+                </tr>
+
+
+  </tr>
+
+                                                <td width="4%">&nbsp;</td>
+                        <td width="3%" valign="top">
+                                                        <span class="text"><font size="-1">b.   </font></span>
+                                                </td>
+                        <td width="2%" valign="top">
+                                                        <INPUT TYPE = RADIO NAME = Question5 VALUE = b.    >
+                         </td>
+                                             <td colspan ="96%" valign="top">
+
+                                                                        <span class="text"><font size="-1">on the gravel shoulder of the highway</font></span>
+                                                                </td>
+                </tr>
+
+
+  </tr>
+
+                                                <td width="4%">&nbsp;</td>
+                        <td width="3%" valign="top">
+                                                        <span class="text"><font size="-1">c.   </font></span>
+                                                </td>
+                        <td width="2%" valign="top">
+                                                        <INPUT TYPE = RADIO NAME = Question5 VALUE = c.    >
+                         </td>
+                                             <td colspan ="96%" valign="top">
+
+                                                                        <span class="text"><font size="-1">when there is a solid white or yellow line on either side of your lane and if it's clear ahead</font></span>
+                                                                </td>
+                </tr>
+
+
+  </tr>
+
+                                                <td width="4%">&nbsp;</td>
+                        <td width="3%" valign="top">
+                                                        <span class="text"><font size="-1">d.   </font></span>
+                                                </td>
+                        <td width="2%" valign="top">
+                                                        <INPUT TYPE = RADIO NAME = Question5 VALUE = d.    >
+                         </td>
+                                             <td colspan ="96%" valign="top">
+                                                        <span class="textBoldBlue"><font size="-1">none of the above</font></span><IMG height=12 alt="" src="../images/DriveQuiz/checkmark2.gif" width=12>
+                                                                </td>
+                </tr>
+
+
+  </tr>
+
+     <tr>
+                <td colspan="100%"><hr></td>
+         </tr>
+
+                <tr>
+                        <td width="4%" height="26" valign="top">
+                                <span class="textBold"><font size="-1">6</font></span>
+                        </td>
+
+            <td colspan="99%" height="26" valign="top">
+                                <span class="textBold"><font size="-1"> On big trucks, there are large blind spots called No-Zones around the truck. Which of the following No-Zones should you avoid?</font></span>
+            </td>
+        </tr>
+        <tr>
+
+                                                <td width="4%">&nbsp;</td>
+                        <td width="3%" valign="top">
+                                                        <span class="text"><font size="-1">a.   </font></span>
+                                                </td>
+                        <td width="2%" valign="top">
+                                                        <INPUT TYPE = RADIO NAME = Question6 VALUE = a.    >
+                         </td>
+                                             <td colspan ="96%" valign="top">
+
+                                                                        <span class="text"><font size="-1">the area in front of the truck</font></span>
+                                                                </td>
+                </tr>
+
+
+  </tr>
+
+                                                <td width="4%">&nbsp;</td>
+                        <td width="3%" valign="top">
+                                                        <span class="text"><font size="-1">b.   </font></span>
+                                                </td>
+                        <td width="2%" valign="top">
+                                                        <INPUT TYPE = RADIO NAME = Question6 VALUE = b.    >
+                         </td>
+                                             <td colspan ="96%" valign="top">
+
+                                                                        <span class="text"><font size="-1">the area directly behind the truck</font></span>
+                                                                </td>
+                </tr>
+
+
+  </tr>
+
+                                                <td width="4%">&nbsp;</td>
+                        <td width="3%" valign="top">
+                                                        <span class="text"><font size="-1">c.   </font></span>
+                                                </td>
+                        <td width="2%" valign="top">
+                                                        <INPUT TYPE = RADIO NAME = Question6 VALUE = c.    >
+                         </td>
+                                             <td colspan ="96%" valign="top">
+
+                                                                        <span class="text"><font size="-1">the sides of the truck</font></span>
+                                                                </td>
+                </tr>
+
+
+  </tr>
+
+                                                <td width="4%">&nbsp;</td>
+                        <td width="3%" valign="top">
+                                                        <span class="text"><font size="-1">d.   </font></span>
+                                                </td>
+                        <td width="2%" valign="top">
+                                                        <INPUT TYPE = RADIO NAME = Question6 VALUE = d.    >
+                         </td>
+                                             <td colspan ="96%" valign="top">
+                                                        <span class="textBoldBlue"><font size="-1">all of the above</font></span><IMG height=12 alt="" src="../images/DriveQuiz/checkmark2.gif" width=12>
+                                                                </td>
+                </tr>
+
+
+  </tr>
+
+     <tr>
+                <td colspan="100%"><hr></td>
+         </tr>
+
+                <tr>
+                        <td width="4%" height="26" valign="top">
+                                <span class="textBold"><font size="-1">7</font></span>
+                        </td>
+
+            <td colspan="99%" height="26" valign="top">
+                                <span class="textBold"><font size="-1"> Lighted arrows are sometimes used to control turns from a specific traffic lane. A yellow arrow is:</font></span>
+            </td>
+        </tr>
+        <tr>
+
+                                                <td width="4%">&nbsp;</td>
+                        <td width="3%" valign="top">
+                                                        <span class="text"><font size="-1">a.   </font></span>
+                                                </td>
+                        <td width="2%" valign="top">
+                                                        <INPUT TYPE = RADIO NAME = Question7 VALUE = a.    >
+                         </td>
+                                             <td colspan ="96%" valign="top">
+
+                                                                        <span class="text"><font size="-1">never used as a traffic signal</font></span>
+                                                                </td>
+                </tr>
+
+
+  </tr>
+
+                                                <td width="4%">&nbsp;</td>
+                        <td width="3%" valign="top">
+                                                        <span class="text"><font size="-1">b.   </font></span>
+                                                </td>
+                        <td width="2%" valign="top">
+                                                        <INPUT TYPE = RADIO NAME = Question7 VALUE = b.    >
+                         </td>
+                                             <td colspan ="96%" valign="top">
+
+                                                                        <span class="text"><font size="-1">only used on one-way streets</font></span>
+                                                                </td>
+                </tr>
+
+
+  </tr>
+
+                                                <td width="4%">&nbsp;</td>
+                        <td width="3%" valign="top">
+                                                        <span class="text"><font size="-1">c.   </font></span>
+                                                </td>
+                        <td width="2%" valign="top">
+                                                        <INPUT TYPE = RADIO NAME = Question7 VALUE = c.    >
+                         </td>
+                                             <td colspan ="96%" valign="top">
+
+                                                                        <span class="text"><font size="-1">only to be used by truck traffic</font></span>
+                                                                </td>
+                </tr>
+
+
+  </tr>
+
+                                                <td width="4%">&nbsp;</td>
+                        <td width="3%" valign="top">
+                                                        <span class="text"><font size="-1">d.   </font></span>
+                                                </td>
+                        <td width="2%" valign="top">
+                                                        <INPUT TYPE = RADIO NAME = Question7 VALUE = d.    >
+                         </td>
+                                             <td colspan ="96%" valign="top">
+                                                        <span class="textBoldBlue"><font size="-1">warning that oncoming traffic may next receive a green signal</font></span><IMG height=12 alt="" src="../images/DriveQuiz/checkmark2.gif" width=12>
+                                                                </td>
+                </tr>
+
+
+  </tr>
+
+     <tr>
+                <td colspan="100%"><hr></td>
+         </tr>
+
+                <tr>
+                        <td width="4%" height="26" valign="top">
+                                <span class="textBold"><font size="-1">8</font></span>
+                        </td>
+
+            <td colspan="99%" height="26" valign="top">
+                                <span class="textBold"><font size="-1"> To reduce glare from the lights of an oncoming vehicle, you should:</font></span>
+            </td>
+        </tr>
+        <tr>
+
+                                                <td width="4%">&nbsp;</td>
+                        <td width="3%" valign="top">
+                                                        <span class="text"><font size="-1">a.   </font></span>
+                                                </td>
+                        <td width="2%" valign="top">
+                                                        <INPUT TYPE = RADIO NAME = Question8 VALUE = a.    >
+                         </td>
+                                             <td colspan ="96%" valign="top">
+                                                        <span class="textBoldBlue"><font size="-1">look away to the right edge of the roadway just as you meet the vehicle</font></span><IMG height=12 alt="" src="../images/DriveQuiz/checkmark2.gif" width=12>
+                                                                </td>
+                </tr>
+
+
+  </tr>
+
+                                                <td width="4%">&nbsp;</td>
+                        <td width="3%" valign="top">
+                                                        <span class="text"><font size="-1">b.   </font></span>
+                                                </td>
+                        <td width="2%" valign="top">
+                                                        <INPUT TYPE = RADIO NAME = Question8 VALUE = b.    >
+                         </td>
+                                             <td colspan ="96%" valign="top">
+
+                                                                        <span class="text"><font size="-1">look away to the left edge of the roadway just as you meet the vehicle</font></span>
+                                                                </td>
+                </tr>
+
+
+  </tr>
+
+                                                <td width="4%">&nbsp;</td>
+                        <td width="3%" valign="top">
+                                                        <span class="text"><font size="-1">c.   </font></span>
+                                                </td>
+                        <td width="2%" valign="top">
+                                                        <INPUT TYPE = RADIO NAME = Question8 VALUE = c.    >
+                         </td>
+                                             <td colspan ="96%" valign="top">
+
+                                                                        <span class="text"><font size="-1">wear sunglasses just as you meet the vehicle</font></span>
+                                                                </td>
+                </tr>
+
+
+  </tr>
+
+                                                <td width="4%">&nbsp;</td>
+                        <td width="3%" valign="top">
+                                                        <span class="text"><font size="-1">d.   </font></span>
+                                                </td>
+                        <td width="2%" valign="top">
+                                                        <INPUT TYPE = RADIO NAME = Question8 VALUE = d.    >
+                         </td>
+                                             <td colspan ="96%" valign="top">
+
+                                                                        <span class="text"><font size="-1">stare at the oncoming lights just as you meet the vehicle</font></span>
+                                                                </td>
+                </tr>
+
+
+  </tr>
+
+        <tr>
+           <td width="4%">&nbsp;</td>
+           <td colspan = "96%"><font size="-1" face="Verdana, Arial, Helvetica, sans-serif" color = "#0000CC"><font color="#000000">
+
+        <a href=http://www.mpi.mb.ca/en/rd-safety/tips/60-sec-driver/pages/headlights.aspx target="_self" color = "#0000CC">View more information on this topic.</a></font>
+
+       </font></td>
+     </tr>
+
+     <tr>
+                <td colspan="100%"><hr></td>
+         </tr>
+
+                <tr>
+                        <td width="4%" height="26" valign="top">
+                                <span class="textBold"><font size="-1">9</font></span>
+                        </td>
+
+            <td colspan="99%" height="26" valign="top">
+                                <span class="textBold"><font size="-1"> When driving directly behind a heavy truck or bus, extra caution must be taken because: </font></span>
+            </td>
+        </tr>
+        <tr>
+
+                                                <td width="4%">&nbsp;</td>
+                        <td width="3%" valign="top">
+                                                        <span class="text"><font size="-1">a.   </font></span>
+                                                </td>
+                        <td width="2%" valign="top">
+                                                        <INPUT TYPE = RADIO NAME = Question9 VALUE = a.    >
+                         </td>
+                                             <td colspan ="96%" valign="top">
+
+                                                                        <span class="text"><font size="-1">the heavy truck or bus driver may not be able to see you</font></span>
+                                                                </td>
+                </tr>
+
+
+  </tr>
+
+                                                <td width="4%">&nbsp;</td>
+                        <td width="3%" valign="top">
+                                                        <span class="text"><font size="-1">b.   </font></span>
+                                                </td>
+                        <td width="2%" valign="top">
+                                                        <INPUT TYPE = RADIO NAME = Question9 VALUE = b.    >
+                         </td>
+                                             <td colspan ="96%" valign="top">
+
+                                                                        <span class="text"><font size="-1">the truck or bus blocks your forward visibility</font></span>
+                                                                </td>
+                </tr>
+
+
+  </tr>
+
+                                                <td width="4%">&nbsp;</td>
+                        <td width="3%" valign="top">
+                                                        <span class="text"><font size="-1">c.   </font></span>
+                                                </td>
+                        <td width="2%" valign="top">
+                                                        <INPUT TYPE = RADIO NAME = Question9 VALUE = c.    >
+                         </td>
+                                             <td colspan ="96%" valign="top">
+
+                                                                        <span class="text"><font size="-1">the tires may dislodge stones</font></span>
+                                                                </td>
+                </tr>
+
+
+  </tr>
+
+                                                <td width="4%">&nbsp;</td>
+                        <td width="3%" valign="top">
+                                                        <span class="text"><font size="-1">d.   </font></span>
+                                                </td>
+                        <td width="2%" valign="top">
+                                                        <INPUT TYPE = RADIO NAME = Question9 VALUE = d.    >
+                         </td>
+                                             <td colspan ="96%" valign="top">
+                                                        <span class="textBoldBlue"><font size="-1">all of the above</font></span><IMG height=12 alt="" src="../images/DriveQuiz/checkmark2.gif" width=12>
+                                                                </td>
+                </tr>
+
+
+  </tr>
+
+     <tr>
+                <td colspan="100%"><hr></td>
+         </tr>
+
+                <tr>
+                        <td width="4%" height="26" valign="top">
+                                <span class="textBold"><font size="-1">10</font></span>
+                        </td>
+
+            <td colspan="99%" height="26" valign="top">
+                                <span class="textBold"><font size="-1"> Upon arriving at the scene of an accident, you should</font></span>
+            </td>
+        </tr>
+        <tr>
+
+                                                <td width="4%">&nbsp;</td>
+                        <td width="3%" valign="top">
+                                                        <span class="text"><font size="-1">a.   </font></span>
+                                                </td>
+                        <td width="2%" valign="top">
+                                                        <INPUT TYPE = RADIO NAME = Question10 VALUE = a.    >
+                         </td>
+                                             <td colspan ="96%" valign="top">
+
+                                                                        <span class="text"><font size="-1">park your vehicle off the roadway and turn off ignitions of vehicles involved in the accident</font></span>
+                                                                </td>
+                </tr>
+
+
+  </tr>
+
+                                                <td width="4%">&nbsp;</td>
+                        <td width="3%" valign="top">
+                                                        <span class="text"><font size="-1">b.   </font></span>
+                                                </td>
+                        <td width="2%" valign="top">
+                                                        <INPUT TYPE = RADIO NAME = Question10 VALUE = b.    >
+                         </td>
+                                             <td colspan ="96%" valign="top">
+
+                                                                        <span class="text"><font size="-1">if you have flares or reflectors, place them 60 metres in front and behind the accident scene</font></span>
+                                                                </td>
+                </tr>
+
+
+  </tr>
+
+                                                <td width="4%">&nbsp;</td>
+                        <td width="3%" valign="top">
+                                                        <span class="text"><font size="-1">c.   </font></span>
+                                                </td>
+                        <td width="2%" valign="top">
+                                                        <INPUT TYPE = RADIO NAME = Question10 VALUE = c.    >
+                         </td>
+                                             <td colspan ="96%" valign="top">
+
+                                                                        <span class="text"><font size="-1">try to assist the people who are involved in the accident. In case of a serious injury, call the police and an ambulance</font></span>
+                                                                </td>
+                </tr>
+
+
+  </tr>
+
+                                                <td width="4%">&nbsp;</td>
+                        <td width="3%" valign="top">
+                                                        <span class="text"><font size="-1">d.   </font></span>
+                                                </td>
+                        <td width="2%" valign="top">
+                                                        <INPUT TYPE = RADIO NAME = Question10 VALUE = d.    >
+                         </td>
+                                             <td colspan ="96%" valign="top">
+                                                        <span class="textBoldBlue"><font size="-1">all of the above</font></span><IMG height=12 alt="" src="../images/DriveQuiz/checkmark2.gif" width=12>
+                                                                </td>
+                </tr>
+
+
+  </tr>
+
+     <tr>
+                <td colspan="100%"><hr></td>
+         </tr>
+
+                <tr>
+                        <td width="4%" height="26" valign="top">
+                                <span class="textBold"><font size="-1">11</font></span>
+                        </td>
+
+            <td colspan="99%" height="26" valign="top">
+                                <span class="textBold"><font size="-1"> You are allowed to open the door, on the traffic side of your car:</font></span>
+            </td>
+        </tr>
+        <tr>
+
+                                                <td width="4%">&nbsp;</td>
+                        <td width="3%" valign="top">
+                                                        <span class="text"><font size="-1">a.   </font></span>
+                                                </td>
+                        <td width="2%" valign="top">
+                                                        <INPUT TYPE = RADIO NAME = Question11 VALUE = a.    >
+                         </td>
+                                             <td colspan ="96%" valign="top">
+
+                                                                        <span class="text"><font size="-1">never</font></span>
+                                                                </td>
+                </tr>
+
+
+  </tr>
+
+                                                <td width="4%">&nbsp;</td>
+                        <td width="3%" valign="top">
+                                                        <span class="text"><font size="-1">b.   </font></span>
+                                                </td>
+                        <td width="2%" valign="top">
+                                                        <INPUT TYPE = RADIO NAME = Question11 VALUE = b.    >
+                         </td>
+                                             <td colspan ="96%" valign="top">
+
+                                                                        <span class="text"><font size="-1">after making proper signals</font></span>
+                                                                </td>
+                </tr>
+
+
+  </tr>
+
+                                                <td width="4%">&nbsp;</td>
+                        <td width="3%" valign="top">
+                                                        <span class="text"><font size="-1">c.   </font></span>
+                                                </td>
+                        <td width="2%" valign="top">
+                                                        <INPUT TYPE = RADIO NAME = Question11 VALUE = c.    >
+                         </td>
+                                             <td colspan ="96%" valign="top">
+                                                        <span class="textBoldBlue"><font size="-1">when you are sure that it can be done safely</font></span><IMG height=12 alt="" src="../images/DriveQuiz/checkmark2.gif" width=12>
+                                                                </td>
+                </tr>
+
+
+  </tr>
+
+                                                <td width="4%">&nbsp;</td>
+                        <td width="3%" valign="top">
+                                                        <span class="text"><font size="-1">d.   </font></span>
+                                                </td>
+                        <td width="2%" valign="top">
+                                                        <INPUT TYPE = RADIO NAME = Question11 VALUE = d.    >
+                         </td>
+                                             <td colspan ="96%" valign="top">
+
+                                                                        <span class="text"><font size="-1">when your vehicle has come to a complete stop</font></span>
+                                                                </td>
+                </tr>
+
+
+  </tr>
+
+     <tr>
+                <td colspan="100%"><hr></td>
+         </tr>
+
+                <tr>
+                        <td width="4%" height="26" valign="top">
+                                <span class="textBold"><font size="-1">12</font></span>
+                        </td>
+
+            <td colspan="99%" height="26" valign="top">
+                                <span class="textBold"><font size="-1"> Most automobile accidents involving dangerous road conditions are caused by:</font></span>
+            </td>
+        </tr>
+        <tr>
+
+                                                <td width="4%">&nbsp;</td>
+                        <td width="3%" valign="top">
+                                                        <span class="text"><font size="-1">a.   </font></span>
+                                                </td>
+                        <td width="2%" valign="top">
+                                                        <INPUT TYPE = RADIO NAME = Question12 VALUE = a.    >
+                         </td>
+                                             <td colspan ="96%" valign="top">
+
+                                                                        <span class="text"><font size="-1">slippery road conditions</font></span>
+                                                                </td>
+                </tr>
+
+
+  </tr>
+
+                                                <td width="4%">&nbsp;</td>
+                        <td width="3%" valign="top">
+                                                        <span class="text"><font size="-1">b.   </font></span>
+                                                </td>
+                        <td width="2%" valign="top">
+                                                        <INPUT TYPE = RADIO NAME = Question12 VALUE = b.    >
+                         </td>
+                                             <td colspan ="96%" valign="top">
+
+                                                                        <span class="text"><font size="-1">bald or worn tires</font></span>
+                                                                </td>
+                </tr>
+
+
+  </tr>
+
+                                                <td width="4%">&nbsp;</td>
+                        <td width="3%" valign="top">
+                                                        <span class="text"><font size="-1">c.   </font></span>
+                                                </td>
+                        <td width="2%" valign="top">
+                                                        <INPUT TYPE = RADIO NAME = Question12 VALUE = c.    >
+                         </td>
+                                             <td colspan ="96%" valign="top">
+                                                        <span class="textBoldBlue"><font size="-1">drivers who do not have full control of their vehicles</font></span><IMG height=12 alt="" src="../images/DriveQuiz/checkmark2.gif" width=12>
+                                                                </td>
+                </tr>
+
+
+  </tr>
+
+                                                <td width="4%">&nbsp;</td>
+                        <td width="3%" valign="top">
+                                                        <span class="text"><font size="-1">d.   </font></span>
+                                                </td>
+                        <td width="2%" valign="top">
+                                                        <INPUT TYPE = RADIO NAME = Question12 VALUE = d.    >
+                         </td>
+                                             <td colspan ="96%" valign="top">
+
+                                                                        <span class="text"><font size="-1">too much or too little air in the tires</font></span>
+                                                                </td>
+                </tr>
+
+
+  </tr>
+
+     <tr>
+                <td colspan="100%"><hr></td>
+         </tr>
+
+                <tr>
+                        <td width="4%" height="26" valign="top">
+                                <span class="textBold"><font size="-1">13</font></span>
+                        </td>
+
+            <td colspan="99%" height="26" valign="top">
+                                <span class="textBold"><font size="-1"> How close to a stop sign can you park?</font></span>
+            </td>
+        </tr>
+        <tr>
+
+                                                <td width="4%">&nbsp;</td>
+                        <td width="3%" valign="top">
+                                                        <span class="text"><font size="-1">a.   </font></span>
+                                                </td>
+                        <td width="2%" valign="top">
+                                                        <INPUT TYPE = RADIO NAME = Question13 VALUE = a.    >
+                         </td>
+                                             <td colspan ="96%" valign="top">
+                                                        <span class="textBoldBlue"><font size="-1">9 metres</font></span><IMG height=12 alt="" src="../images/DriveQuiz/checkmark2.gif" width=12>
+                                                                </td>
+                </tr>
+
+
+  </tr>
+
+                                                <td width="4%">&nbsp;</td>
+                        <td width="3%" valign="top">
+                                                        <span class="text"><font size="-1">b.   </font></span>
+                                                </td>
+                        <td width="2%" valign="top">
+                                                        <INPUT TYPE = RADIO NAME = Question13 VALUE = b.    >
+                         </td>
+                                             <td colspan ="96%" valign="top">
+
+                                                                        <span class="text"><font size="-1">6 metres</font></span>
+                                                                </td>
+                </tr>
+
+
+  </tr>
+
+                                                <td width="4%">&nbsp;</td>
+                        <td width="3%" valign="top">
+                                                        <span class="text"><font size="-1">c.   </font></span>
+                                                </td>
+                        <td width="2%" valign="top">
+                                                        <INPUT TYPE = RADIO NAME = Question13 VALUE = c.    >
+                         </td>
+                                             <td colspan ="96%" valign="top">
+
+                                                                        <span class="text"><font size="-1">3 metres</font></span>
+                                                                </td>
+                </tr>
+
+
+  </tr>
+
+                                                <td width="4%">&nbsp;</td>
+                        <td width="3%" valign="top">
+                                                        <span class="text"><font size="-1">d.   </font></span>
+                                                </td>
+                        <td width="2%" valign="top">
+                                                        <INPUT TYPE = RADIO NAME = Question13 VALUE = d.    >
+                         </td>
+                                             <td colspan ="96%" valign="top">
+
+                                                                        <span class="text"><font size="-1">1 metre</font></span>
+                                                                </td>
+                </tr>
+
+
+  </tr>
+
+     <tr>
+                <td colspan="100%"><hr></td>
+         </tr>
+
+                <tr>
+                        <td width="4%" height="26" valign="top">
+                                <span class="textBold"><font size="-1">14</font></span>
+                        </td>
+
+            <td colspan="99%" height="26" valign="top">
+                                <span class="textBold"><font size="-1"> This sign means:</font></span>
+            </td>
+        </tr>
+        <tr>
+
+                                                <td width="2%">&nbsp;</td>
+                        <td width="2%" valign="top">
+                                <span class="text"><font size="-1">a.   </font></span>
+                        </td>
+                                <td width="4%" height="26" valign="top">
+                                <INPUT TYPE = RADIO NAME = Question14 VALUE = a.    >
+                        </td>
+                        <td colspan ="71%" valign="top">
+
+                                        <span class="text"><font size="-1">curves ahead</font></span>
+
+                        </td>
+
+                        <td width="21%" rowspan="4"><div align="center">
+                                                <img src='../images/DriveQuiz/Class5/RoadSign_10.gif' >
+                                        </div>
+                                </td>
+
+
+  </tr>
+
+                                                <td width="2%">&nbsp;</td>
+                        <td width="2%" valign="top">
+                                <span class="text"><font size="-1">b.   </font></span>
+                        </td>
+                                <td width="4%" height="26" valign="top">
+                                <INPUT TYPE = RADIO NAME = Question14 VALUE = b.    >
+                        </td>
+                        <td colspan ="71%" valign="top">
+
+                                        <span class="text"><font size="-1">slippery surface</font></span>
+
+                        </td>
+
+
+  </tr>
+
+                                                <td width="2%">&nbsp;</td>
+                        <td width="2%" valign="top">
+                                <span class="text"><font size="-1">c.   </font></span>
+                        </td>
+                                <td width="4%" height="26" valign="top">
+                                <INPUT TYPE = RADIO NAME = Question14 VALUE = c.    >
+                        </td>
+                        <td colspan ="71%" valign="top">
+                                <span class="textBoldBlue"><font size="-1">winding road ahead</font></span>
+                                        <IMG height=12 alt="" src="../images/DriveQuiz/checkmark2.gif" width=12>
+                        </td>
+
+
+  </tr>
+
+                                                <td width="2%">&nbsp;</td>
+                        <td width="2%" valign="top">
+                                <span class="text"><font size="-1">d.   </font></span>
+                        </td>
+                                <td width="4%" height="26" valign="top">
+                                <INPUT TYPE = RADIO NAME = Question14 VALUE = d.    >
+                        </td>
+                        <td colspan ="71%" valign="top">
+
+                                        <span class="text"><font size="-1">icy conditions</font></span>
+
+                        </td>
+
+
+  </tr>
+
+     <tr>
+                <td colspan="100%"><hr></td>
+         </tr>
+
+                <tr>
+                        <td width="4%" height="26" valign="top">
+                                <span class="textBold"><font size="-1">15</font></span>
+                        </td>
+
+            <td colspan="99%" height="26" valign="top">
+                                <span class="textBold"><font size="-1"> This sign means:</font></span>
+            </td>
+        </tr>
+        <tr>
+
+                                                <td width="2%">&nbsp;</td>
+                        <td width="2%" valign="top">
+                                <span class="text"><font size="-1">a.   </font></span>
+                        </td>
+                                <td width="4%" height="26" valign="top">
+                                <INPUT TYPE = RADIO NAME = Question15 VALUE = a.    >
+                        </td>
+                        <td colspan ="71%" valign="top">
+
+                                        <span class="text"><font size="-1">median ahead</font></span>
+
+                        </td>
+
+                        <td width="21%" rowspan="4"><div align="center">
+                                                <img src='../images/DriveQuiz/Class5/RoadSign_14.gif' >
+                                        </div>
+                                </td>
+
+
+  </tr>
+
+                                                <td width="2%">&nbsp;</td>
+                        <td width="2%" valign="top">
+                                <span class="text"><font size="-1">b.   </font></span>
+                        </td>
+                                <td width="4%" height="26" valign="top">
+                                <INPUT TYPE = RADIO NAME = Question15 VALUE = b.    >
+                        </td>
+                        <td colspan ="71%" valign="top">
+
+                                        <span class="text"><font size="-1">entering a town, city or village</font></span>
+
+                        </td>
+
+
+  </tr>
+
+                                                <td width="2%">&nbsp;</td>
+                        <td width="2%" valign="top">
+                                <span class="text"><font size="-1">c.   </font></span>
+                        </td>
+                                <td width="4%" height="26" valign="top">
+                                <INPUT TYPE = RADIO NAME = Question15 VALUE = c.    >
+                        </td>
+                        <td colspan ="71%" valign="top">
+                                <span class="textBoldBlue"><font size="-1">divided highway begins ahead</font></span>
+                                        <IMG height=12 alt="" src="../images/DriveQuiz/checkmark2.gif" width=12>
+                        </td>
+
+
+  </tr>
+
+                                                <td width="2%">&nbsp;</td>
+                        <td width="2%" valign="top">
+                                <span class="text"><font size="-1">d.   </font></span>
+                        </td>
+                                <td width="4%" height="26" valign="top">
+                                <INPUT TYPE = RADIO NAME = Question15 VALUE = d.    >
+                        </td>
+                        <td colspan ="71%" valign="top">
+
+                                        <span class="text"><font size="-1">road ends ahead</font></span>
+
+                        </td>
+
+
+  </tr>
+
+     <tr>
+                <td colspan="100%"><hr></td>
+         </tr>
+
+                <tr>
+                        <td width="4%" height="26" valign="top">
+                                <span class="textBold"><font size="-1">16</font></span>
+                        </td>
+
+            <td colspan="99%" height="26" valign="top">
+                                <span class="textBold"><font size="-1"> This sign means:</font></span>
+            </td>
+        </tr>
+        <tr>
+
+                                                <td width="2%">&nbsp;</td>
+                        <td width="2%" valign="top">
+                                <span class="text"><font size="-1">a.   </font></span>
+                        </td>
+                                <td width="4%" height="26" valign="top">
+                                <INPUT TYPE = RADIO NAME = Question16 VALUE = a.    >
+                        </td>
+                        <td colspan ="71%" valign="top">
+
+                                        <span class="text"><font size="-1">no right turn</font></span>
+
+                        </td>
+
+                        <td width="21%" rowspan="4"><div align="center">
+                                                <img src='../images/DriveQuiz/Class5/RoadSign_35.gif' >
+                                        </div>
+                                </td>
+
+
+  </tr>
+
+                                                <td width="2%">&nbsp;</td>
+                        <td width="2%" valign="top">
+                                <span class="text"><font size="-1">b.   </font></span>
+                        </td>
+                                <td width="4%" height="26" valign="top">
+                                <INPUT TYPE = RADIO NAME = Question16 VALUE = b.    >
+                        </td>
+                        <td colspan ="71%" valign="top">
+
+                                        <span class="text"><font size="-1">trucks only</font></span>
+
+                        </td>
+
+
+  </tr>
+
+                                                <td width="2%">&nbsp;</td>
+                        <td width="2%" valign="top">
+                                <span class="text"><font size="-1">c.   </font></span>
+                        </td>
+                                <td width="4%" height="26" valign="top">
+                                <INPUT TYPE = RADIO NAME = Question16 VALUE = c.    >
+                        </td>
+                        <td colspan ="71%" valign="top">
+                                <span class="textBoldBlue"><font size="-1">reserved lane located in median lane</font></span>
+                                        <IMG height=12 alt="" src="../images/DriveQuiz/checkmark2.gif" width=12>
+                        </td>
+
+
+  </tr>
+
+                                                <td width="2%">&nbsp;</td>
+                        <td width="2%" valign="top">
+                                <span class="text"><font size="-1">d.   </font></span>
+                        </td>
+                                <td width="4%" height="26" valign="top">
+                                <INPUT TYPE = RADIO NAME = Question16 VALUE = d.    >
+                        </td>
+                        <td colspan ="71%" valign="top">
+
+                                        <span class="text"><font size="-1">no right turn between 08:30 - 17:30</font></span>
+
+                        </td>
+
+
+  </tr>
+
+        <tr>
+           <td width="4%">&nbsp;</td>
+           <td colspan = "96%"><font size="-1" face="Verdana, Arial, Helvetica, sans-serif" color = "#0000CC"><font color="#000000">
+
+        <a href=http://www.mpi.mb.ca/en/rd-safety/tips/60-sec-driver/pages/sharingwithtransit.aspx target="_self" color = "#0000CC">View more information on this topic.</a></font>
+
+       </font></td>
+     </tr>
+
+     <tr>
+                <td colspan="100%"><hr></td>
+         </tr>
+
+                <tr>
+                        <td width="4%" height="26" valign="top">
+                                <span class="textBold"><font size="-1">17</font></span>
+                        </td>
+
+            <td colspan="99%" height="26" valign="top">
+                                <span class="textBold"><font size="-1"> This sign means:</font></span>
+            </td>
+        </tr>
+        <tr>
+
+                                                <td width="2%">&nbsp;</td>
+                        <td width="2%" valign="top">
+                                <span class="text"><font size="-1">a.   </font></span>
+                        </td>
+                                <td width="4%" height="26" valign="top">
+                                <INPUT TYPE = RADIO NAME = Question17 VALUE = a.    >
+                        </td>
+                        <td colspan ="71%" valign="top">
+
+                                        <span class="text"><font size="-1">road merges</font></span>
+
+                        </td>
+
+                        <td width="21%" rowspan="4"><div align="center">
+                                                <img src='../images/DriveQuiz/Class5/RoadSign_44.gif' >
+                                        </div>
+                                </td>
+
+
+  </tr>
+
+                                                <td width="2%">&nbsp;</td>
+                        <td width="2%" valign="top">
+                                <span class="text"><font size="-1">b.   </font></span>
+                        </td>
+                                <td width="4%" height="26" valign="top">
+                                <INPUT TYPE = RADIO NAME = Question17 VALUE = b.    >
+                        </td>
+                        <td colspan ="71%" valign="top">
+
+                                        <span class="text"><font size="-1">construction ahead</font></span>
+
+                        </td>
+
+
+  </tr>
+
+                                                <td width="2%">&nbsp;</td>
+                        <td width="2%" valign="top">
+                                <span class="text"><font size="-1">c.   </font></span>
+                        </td>
+                                <td width="4%" height="26" valign="top">
+                                <INPUT TYPE = RADIO NAME = Question17 VALUE = c.    >
+                        </td>
+                        <td colspan ="71%" valign="top">
+                                <span class="textBoldBlue"><font size="-1">barricade ahead</font></span>
+                                        <IMG height=12 alt="" src="../images/DriveQuiz/checkmark2.gif" width=12>
+                        </td>
+
+
+  </tr>
+
+                                                <td width="2%">&nbsp;</td>
+                        <td width="2%" valign="top">
+                                <span class="text"><font size="-1">d.   </font></span>
+                        </td>
+                                <td width="4%" height="26" valign="top">
+                                <INPUT TYPE = RADIO NAME = Question17 VALUE = d.    >
+                        </td>
+                        <td colspan ="71%" valign="top">
+
+                                        <span class="text"><font size="-1">speed limit ahead</font></span>
+
+                        </td>
+
+
+  </tr>
+
+     <tr>
+                <td colspan="100%"><hr></td>
+         </tr>
+
+                <tr>
+                        <td width="4%" height="26" valign="top">
+                                <span class="textBold"><font size="-1">18</font></span>
+                        </td>
+
+            <td colspan="99%" height="26" valign="top">
+                                <span class="textBold"><font size="-1"> This sign means:</font></span>
+            </td>
+        </tr>
+        <tr>
+
+                                                <td width="2%">&nbsp;</td>
+                        <td width="2%" valign="top">
+                                <span class="text"><font size="-1">a.   </font></span>
+                        </td>
+                                <td width="4%" height="26" valign="top">
+                                <INPUT TYPE = RADIO NAME = Question18 VALUE = a.    >
+                        </td>
+                        <td colspan ="71%" valign="top">
+                                <span class="textBoldBlue"><font size="-1">parking permitted as indicated</font></span>
+                                        <IMG height=12 alt="" src="../images/DriveQuiz/checkmark2.gif" width=12>
+                        </td>
+
+                        <td width="21%" rowspan="4"><div align="center">
+                                                <img src='../images/DriveQuiz/Class5/RoadSign_65.gif' >
+                                        </div>
+                                </td>
+
+
+  </tr>
+
+                                                <td width="2%">&nbsp;</td>
+                        <td width="2%" valign="top">
+                                <span class="text"><font size="-1">b.   </font></span>
+                        </td>
+                                <td width="4%" height="26" valign="top">
+                                <INPUT TYPE = RADIO NAME = Question18 VALUE = b.    >
+                        </td>
+                        <td colspan ="71%" valign="top">
+
+                                        <span class="text"><font size="-1">no parking limitation</font></span>
+
+                        </td>
+
+
+  </tr>
+
+                                                <td width="2%">&nbsp;</td>
+                        <td width="2%" valign="top">
+                                <span class="text"><font size="-1">c.   </font></span>
+                        </td>
+                                <td width="4%" height="26" valign="top">
+                                <INPUT TYPE = RADIO NAME = Question18 VALUE = c.    >
+                        </td>
+                        <td colspan ="71%" valign="top">
+
+                                        <span class="text"><font size="-1">no parking before 9:00 a.m.</font></span>
+
+                        </td>
+
+
+  </tr>
+
+                                                <td width="2%">&nbsp;</td>
+                        <td width="2%" valign="top">
+                                <span class="text"><font size="-1">d.   </font></span>
+                        </td>
+                                <td width="4%" height="26" valign="top">
+                                <INPUT TYPE = RADIO NAME = Question18 VALUE = d.    >
+                        </td>
+                        <td colspan ="71%" valign="top">
+
+                                        <span class="text"><font size="-1">parking permitted on one-way streets</font></span>
+
+                        </td>
+
+
+  </tr>
+
+     <tr>
+                <td colspan="100%"><hr></td>
+         </tr>
+
+                <tr>
+                        <td width="4%" height="26" valign="top">
+                                <span class="textBold"><font size="-1">19</font></span>
+                        </td>
+
+            <td colspan="99%" height="26" valign="top">
+                                <span class="textBold"><font size="-1"> This sign means:</font></span>
+            </td>
+        </tr>
+        <tr>
+
+                                                <td width="2%">&nbsp;</td>
+                        <td width="2%" valign="top">
+                                <span class="text"><font size="-1">a.   </font></span>
+                        </td>
+                                <td width="4%" height="26" valign="top">
+                                <INPUT TYPE = RADIO NAME = Question19 VALUE = a.    >
+                        </td>
+                        <td colspan ="71%" valign="top">
+
+                                        <span class="text"><font size="-1">right turns only</font></span>
+
+                        </td>
+
+                        <td width="21%" rowspan="4"><div align="center">
+                                                <img src='../images/DriveQuiz/Class5/RoadSign_74.gif' >
+                                        </div>
+                                </td>
+
+
+  </tr>
+
+                                                <td width="2%">&nbsp;</td>
+                        <td width="2%" valign="top">
+                                <span class="text"><font size="-1">b.   </font></span>
+                        </td>
+                                <td width="4%" height="26" valign="top">
+                                <INPUT TYPE = RADIO NAME = Question19 VALUE = b.    >
+                        </td>
+                        <td colspan ="71%" valign="top">
+
+                                        <span class="text"><font size="-1">no right turns allowed</font></span>
+
+                        </td>
+
+
+  </tr>
+
+                                                <td width="2%">&nbsp;</td>
+                        <td width="2%" valign="top">
+                                <span class="text"><font size="-1">c.   </font></span>
+                        </td>
+                                <td width="4%" height="26" valign="top">
+                                <INPUT TYPE = RADIO NAME = Question19 VALUE = c.    >
+                        </td>
+                        <td colspan ="71%" valign="top">
+                                <span class="textBoldBlue"><font size="-1">through traffic not permitted</font></span>
+                                        <IMG height=12 alt="" src="../images/DriveQuiz/checkmark2.gif" width=12>
+                        </td>
+
+
+  </tr>
+
+                                                <td width="2%">&nbsp;</td>
+                        <td width="2%" valign="top">
+                                <span class="text"><font size="-1">d.   </font></span>
+                        </td>
+                                <td width="4%" height="26" valign="top">
+                                <INPUT TYPE = RADIO NAME = Question19 VALUE = d.    >
+                        </td>
+                        <td colspan ="71%" valign="top">
+
+                                        <span class="text"><font size="-1">left turning lane</font></span>
+
+                        </td>
+
+
+  </tr>
+
+        <tr>
+           <td width="4%">&nbsp;</td>
+           <td colspan = "96%"><font size="-1" face="Verdana, Arial, Helvetica, sans-serif" color = "#0000CC"><font color="#000000">
+
+        <a href=http://www.mpi.mb.ca/en/rd-safety/tips/60-sec-driver/pages/lanedesignationsigns.aspx target="_self" color = "#0000CC">View more information on this topic.</a></font>
+
+       </font></td>
+     </tr>
+
+     <tr>
+                <td colspan="100%"><hr></td>
+         </tr>
+
+                <tr>
+                        <td width="4%" height="26" valign="top">
+                                <span class="textBold"><font size="-1">20</font></span>
+                        </td>
+
+            <td colspan="99%" height="26" valign="top">
+                                <span class="textBold"><font size="-1"> This sign means:</font></span>
+            </td>
+        </tr>
+        <tr>
+
+                                                <td width="2%">&nbsp;</td>
+                        <td width="2%" valign="top">
+                                <span class="text"><font size="-1">a.   </font></span>
+                        </td>
+                                <td width="4%" height="26" valign="top">
+                                <INPUT TYPE = RADIO NAME = Question20 VALUE = a.    >
+                        </td>
+                        <td colspan ="71%" valign="top">
+
+                                        <span class="text"><font size="-1">pedestrian crosswalk</font></span>
+
+                        </td>
+
+                        <td width="21%" rowspan="4"><div align="center">
+                                                <img src='../images/DriveQuiz/Class5/RoadSign_77.gif' >
+                                        </div>
+                                </td>
+
+
+  </tr>
+
+                                                <td width="2%">&nbsp;</td>
+                        <td width="2%" valign="top">
+                                <span class="text"><font size="-1">b.   </font></span>
+                        </td>
+                                <td width="4%" height="26" valign="top">
+                                <INPUT TYPE = RADIO NAME = Question20 VALUE = b.    >
+                        </td>
+                        <td colspan ="71%" valign="top">
+                                <span class="textBoldBlue"><font size="-1">school crosswalk</font></span>
+                                        <IMG height=12 alt="" src="../images/DriveQuiz/checkmark2.gif" width=12>
+                        </td>
+
+
+  </tr>
+
+                                                <td width="2%">&nbsp;</td>
+                        <td width="2%" valign="top">
+                                <span class="text"><font size="-1">c.   </font></span>
+                        </td>
+                                <td width="4%" height="26" valign="top">
+                                <INPUT TYPE = RADIO NAME = Question20 VALUE = c.    >
+                        </td>
+                        <td colspan ="71%" valign="top">
+
+                                        <span class="text"><font size="-1">pedestrian corridor</font></span>
+
+                        </td>
+
+
+  </tr>
+
+                                                <td width="2%">&nbsp;</td>
+                        <td width="2%" valign="top">
+                                <span class="text"><font size="-1">d.   </font></span>
+                        </td>
+                                <td width="4%" height="26" valign="top">
+                                <INPUT TYPE = RADIO NAME = Question20 VALUE = d.    >
+                        </td>
+                        <td colspan ="71%" valign="top">
+
+                                        <span class="text"><font size="-1">playground crosswalk</font></span>
+
+                        </td>
+
+
+  </tr>
+
+        <tr>
+           <td width="4%">&nbsp;</td>
+           <td colspan = "96%"><font size="-1" face="Verdana, Arial, Helvetica, sans-serif" color = "#0000CC"><font color="#000000">
+
+        <a href=http://www.mpi.mb.ca/en/rd-safety/tips/60-sec-driver/pages/schoolzones.aspx target="_self" color = "#0000CC">View more information on this topic.</a></font>
+
+       </font></td>
+     </tr>
+
+     <tr>
+                <td colspan="100%"><hr></td>
+         </tr>
+
+ </Table>
+
+                <p><span class="textSmall">This
+             Driving Quiz is being provided for educational purposes. While every attempt
+             has been made to ensure that the information provided is accurate, Manitoba
+             Public Insurance assumes no responsibility for any damages, losses, or
+             negligence arising out of your reliance upon or use of its content. You
+             should refer to the Driver's Handbook published by Manitoba Public Insurance
+                         for further information. For interpreting and applying the law, consult
+                         <i>The Highway Traffic Act, The Drivers and Vehicles Act</i> and their respective Regulations.
+             In addition, please note that passing the quiz does not constitute passing
+             an official Driver & Vehicle Licensing (DVL) written test.</span>
+        </p>
+
+     <hr>
+     <table width="100%" border="0">
+                <tr>
+
+                                        <td height="31" align="center">
+                                     <font size="-1" face="Verdana, Arial, Helvetica, sans-serif" color="#CC0000"><b>
+                                              <a href="QuizFeedback.asp">Submit Feedback or Questions on This Quiz</a></b>
+                                         </font>
+                                        </td>
+             </tr>
+
+    </table>
+    </td>
+  </tr>
+</table>
+<script src="../scriptsJ/google.js" type="text/javascript"></script>
+
+            <!-- End App Content Here -->
+    </div>
+</div>
+
+
+
+
+<div align="center">
+  <hr>
+  <p><A href="#top"><img src="../../Images/backtotop.gif" width="130" height="40" border="0" alt="Back to the Top"></A></p>
+</div>
+<!--</div>-->
+<!-- Copyright Start -->
+<div id="mpi_copyright_container">
+        <div class="mpi_content_anchor_app">
+            <div id="mpi_copyright" class="cf">
+                <span class="mpi_copyright_left"><a href="http://www.mpi.mb.ca/en/pages/disclaimer.aspx">Disclaimer</a></span>
+                <span class="mpi_copyright_right">&#169; 2019 Manitoba Public Insurance</span>
+            </div>
+        </div>
+</div>
+<!-- Copyright End -->
+
+
+
+
+
+
+</body>
+</html>
+
+
+
+
+
+

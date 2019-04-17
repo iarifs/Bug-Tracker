@@ -46,7 +46,11 @@ namespace BugTracker.Controllers
             //Get the userId of user 
             var userId = User.Identity.GetUserId();
 
-            if (User.IsInRole("Admin") || User.IsInRole("Project Manager"))
+            var userRole = userManager.GetRoles(userId);
+
+
+            if (User.IsInRole("Admin") ||
+                User.IsInRole("Project Manager"))
             {
                 var model = Db.Tickets.ProjectTo<TicketIndexViewModel>().ToList();
                 model.ForEach(p => p.CanIEdit = true);
@@ -62,9 +66,10 @@ namespace BugTracker.Controllers
                             .Where(p => p.Project.Users.Any(x => x.Id == userId))
                             .ProjectTo<TicketIndexViewModel>().ToList();
 
-               foreach(var x in model)
+                //add canIEdit property for editing their tickets only
+                foreach (var x in model)
                 {
-                    if(x.AssignedToUserScreenName == developerName)
+                    if (x.AssignedToUserScreenName == developerName)
                     {
                         x.CanIEdit = true;
                     }
@@ -186,17 +191,17 @@ namespace BugTracker.Controllers
             {
                 return View();
             }
-            
-                var model = Db.Tickets.FirstOrDefault(p => p.Id == id);
 
-                model.Title = form.Title;
-                model.Description = form.Description;
-                model.TicketPriorityId = Convert.ToInt32(form.TicketPriorityId);
-                model.TicketTypeId = Convert.ToInt32(form.TicketTypeId);
-                model.TicketStatusId = Convert.ToInt32(form.TicketStatusId);
-                model.DateUpdated = DateTime.Now;
-                Db.SaveChanges();
-            
+            var model = Db.Tickets.FirstOrDefault(p => p.Id == id);
+
+            model.Title = form.Title;
+            model.Description = form.Description;
+            model.TicketPriorityId = Convert.ToInt32(form.TicketPriorityId);
+            model.TicketTypeId = Convert.ToInt32(form.TicketTypeId);
+            model.TicketStatusId = Convert.ToInt32(form.TicketStatusId);
+            model.DateUpdated = DateTime.Now;
+            Db.SaveChanges();
+
             return RedirectToAction(nameof(TicketController.Index));
         }
 

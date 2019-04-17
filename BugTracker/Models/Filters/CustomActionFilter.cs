@@ -19,47 +19,49 @@ namespace BugTracker.Models.Filters
             var userId = filterContext.HttpContext.User.Identity.GetUserId();
 
             int id = Convert.ToInt32(filterContext.ActionParameters["id"]);
-            
-            if(id == 0)
+
+            if (id == 0)
             {
-                filterContext.Result = new RedirectToRouteResult(
+                RedirectToUnathorize(filterContext);
+            }
+
+            var ticket = db.Tickets.FirstOrDefault(p => p.Id == id);
+
+            if (ticket == null)
+            {
+                RedirectToUnathorize(filterContext);
+            }
+
+            else if (!filterContext.HttpContext.User.IsInRole("Admin") ||
+                 !filterContext.HttpContext.User.IsInRole("Project Manager"))
+            {
+
+
+                if (filterContext.HttpContext.User.IsInRole("Developer") &&
+                    ticket.AssignedToUserId != userId)
+                {
+                    RedirectToUnathorize(filterContext);
+                }
+
+                else if (filterContext.HttpContext.User.IsInRole("Submitter") &&
+                         ticket.OwnerUserId != userId)
+                {
+                    RedirectToUnathorize(filterContext);
+                }
+            }
+
+
+        }
+
+
+        private void RedirectToUnathorize(ActionExecutingContext filterContext)
+        {
+            filterContext.Result = new RedirectToRouteResult(
                  new RouteValueDictionary
                  {
                   { "controller", "Ticket" },
                     { "action", "Index" }
                  });
-            }
-
-            var ticket = db.Tickets.FirstOrDefault(p => p.Id == id);
-
-            if (!filterContext.HttpContext.User.IsInRole("Admin") ||
-                !filterContext.HttpContext.User.IsInRole("Project Manager"))
-            {
-
-
-                if (filterContext.HttpContext.User.IsInRole("Developer") && ticket.AssignedToUserId != userId)
-                {
-                    filterContext.Result = new RedirectToRouteResult(
-                  new RouteValueDictionary
-                  {
-                  { "controller", "Ticket" },
-                    { "action", "UnAthorizedAccess" }
-                  });
-
-                }
-
-                else if (filterContext.HttpContext.User.IsInRole("Submitter") && ticket.OwnerUserId != userId)
-                {
-                    filterContext.Result = new RedirectToRouteResult(
-                  new RouteValueDictionary
-                  {
-                  { "controller", "Ticket" },
-                    { "action", "UnAthorizedAccess" }
-                  });
-                }
-            }
-
-
         }
 
     }

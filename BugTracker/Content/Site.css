@@ -37,25 +37,91 @@ textarea {
     font-size: 20px;
 }
 
-#dropdown-menu{
-    display:none;
+#dropdown-menu {
+    display: none;
+}
+.Low, .Medium, .High {
+    font-weight: 900;
+    position: relative;
 }
 
 .Low {
-    background-color: #44bd32
+    color: #44bd32;
 }
+    .Low:before {
+        content: "\f12a";
+        font-family: "Font Awesome 5 Free";
+        left: 5px;
+        position: absolute;
+        top: 10px;
+        -webkit-animation: rotation 2s infinite linear;
+    }
 
 .Medium {
-    background-color: #fbc531;
+    color: #fbc531;
 }
 
+    .Medium:before {
+        content: "\f071";
+        font-family: "Font Awesome 5 Free";
+        left: -10px;
+        position: absolute;
+        top: 7px;
+        -webkit-animation: shake 1s infinite linear;
+    }
+
 .High {
-    background-color: #ff0011
+    color: #ff0011
 }
+
+    .High:before {
+        content: "\f7ba";
+        font-family: "Font Awesome 5 Free";
+        left: 0px;
+        position: absolute;
+        top: 10px;
+        -webkit-animation: rotation .5s infinite linear;
+    }
+
+
+@keyframes rotation{
+    from{
+        transform:rotate(0deg);
+    }
+    to{
+        transform:rotate(360deg);
+    }
+}
+
+@keyframes shake{
+    10%, 90% {
+        transform: translate3d(-1px, 0, 0);
+    }
+
+    20%, 80% {
+        transform: translate3d(2px, 0, 0);
+    }
+
+    30%, 50%, 70% {
+        transform: translate3d(-4px, 0, 0);
+    }
+
+    40%, 60% {
+        transform: translate3d(4px, 0, 0);
+    }
+}
+
+
 
 .borderless td, .borderless th {
     border: none !important;
 }
-#developer-form{
-    display:none;
+
+#developer-form {
+    display: none;
+}
+
+.user-table {
+    table-layout: fixed;
+    width: 95%;
 }
