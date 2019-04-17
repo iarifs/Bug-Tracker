@@ -36,11 +36,6 @@ namespace BugTracker.Controllers
                     Directory.CreateDirectory(mappedPath);
                 }
 
-                //if (System.IO.File.Exists(filePathWithName))
-                //{
-                //    System.IO.File.Delete(filePathWithName);
-                //}
-
                 form.MediaUrl.SaveAs(filePathWithName);
 
                 var model = new Attachment();

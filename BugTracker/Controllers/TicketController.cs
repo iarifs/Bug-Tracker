@@ -129,9 +129,9 @@ namespace BugTracker.Controllers
             var model = new Ticket();
             model.Title = form.Title;
             model.Description = form.Description;
-            model.ProjectId = Convert.ToInt32(form.ProjectId);
-            model.TicketPriorityId = Convert.ToInt32(form.TicketPriorityId);
-            model.TicketTypeId = Convert.ToInt32(form.TicketTypeId);
+            model.ProjectId = form.ProjectId;
+            model.TicketPriorityId = form.TicketPriorityId;
+            model.TicketTypeId = form.TicketTypeId;
             //set ticket to open
             model.TicketStatusId = 1;
             model.OwnerUserId = User.Identity.GetUserId();
@@ -196,9 +196,9 @@ namespace BugTracker.Controllers
 
             model.Title = form.Title;
             model.Description = form.Description;
-            model.TicketPriorityId = Convert.ToInt32(form.TicketPriorityId);
-            model.TicketTypeId = Convert.ToInt32(form.TicketTypeId);
-            model.TicketStatusId = Convert.ToInt32(form.TicketStatusId);
+            model.TicketPriorityId = form.TicketPriorityId;
+            model.TicketTypeId = form.TicketTypeId;
+            model.TicketStatusId = form.TicketStatusId;
             model.DateUpdated = DateTime.Now;
             Db.SaveChanges();
 
@@ -261,6 +261,7 @@ namespace BugTracker.Controllers
             }
 
             var ticket = Db.Tickets.FirstOrDefault(p => p.Id == id);
+
             var user = Db.Users.FirstOrDefault(p => p.Id == form.DeveloperId);
 
             if (ticket == null || user == null)
@@ -268,8 +269,8 @@ namespace BugTracker.Controllers
                 return RedirectToAction(nameof(TicketController.Index));
             }
 
-
             ticket.AssignedToUserId = user.Id;
+
             Db.SaveChanges();
 
             return RedirectToAction(nameof(TicketController.Details));
