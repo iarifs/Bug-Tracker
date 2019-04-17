@@ -40,3 +40,22 @@ textarea {
 #dropdown-menu{
     display:none;
 }
+
+.Low {
+    background-color: #44bd32
+}
+
+.Medium {
+    background-color: #fbc531;
+}
+
+.High {
+    background-color: #ff0011
+}
+
+.borderless td, .borderless th {
+    border: none !important;
+}
+#developer-form{
+    display:none;
+}

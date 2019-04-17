@@ -40,7 +40,7 @@ namespace BugTracker.Migrations
             const string SUBMITTER = "Submitter";
 
             ApplicationUser adminUser;
-            
+
             CreateRole(ADMIN);
             CreateRole(MANAGER);
             CreateRole(DEVELOPER);
@@ -49,7 +49,7 @@ namespace BugTracker.Migrations
             CreateUser(ADMIN);
 
             //seeding info related to Ticket
-
+            
             SeedTicketTypes(nameof(TypesOfTickets.Bug));
             SeedTicketTypes(nameof(TypesOfTickets.Database));
             SeedTicketTypes(nameof(TypesOfTickets.Feature));
@@ -102,18 +102,19 @@ namespace BugTracker.Migrations
                 }
             }
 
+            
             void SeedTicketTypes(string name)
             {
-                if(!context.TicketTypes.Any(p => p.Name == name))
+                if (!context.TicketTypes.Any(p => p.Name == name))
                 {
-                    context.TicketTypes.Add(new TicketType { Name = name });   
+                    context.TicketTypes.Add(new TicketType { Name = name });
                 }
                 context.SaveChanges();
             }
-
+            
             void SeedTicketStatus(string name)
             {
-                if(!context.TicketStatuses.Any(p => p.Name == name))
+                if (!context.TicketStatuses.Any(p => p.Name == name))
                 {
                     context.TicketStatuses.Add(new TicketStatus { Name = name });
                 }
@@ -122,7 +123,7 @@ namespace BugTracker.Migrations
 
             void SeedTicketPriorities(string name)
             {
-                if(!context.TicketPriorites.Any(p => p.Name == name))
+                if (!context.TicketPriorites.Any(p => p.Name == name))
                 {
                     context.TicketPriorites.Add(new TicketPriority { Name = name });
                 }

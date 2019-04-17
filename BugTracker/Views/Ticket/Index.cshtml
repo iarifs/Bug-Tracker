@@ -47,13 +47,27 @@
                                                 @Html.DisplayFor(m => item.ProjectName)
                                             </td>
                                             <td class="title">
-                                                @Html.DisplayFor(m => item.Title)
+                                                @if (item.CanIEdit)
+                                                {
+                                                    <a href="@Url.Action("Details","Ticket",new { id = item.Id })"> @Html.DisplayFor(m => item.Title)</a>
+                                                }
+                                                else
+                                                {
+                                                    @Html.DisplayFor(m => item.Title)
+                                                }
                                             </td>
+
                                             <td class="edit">
-                                                <a href=@Url.Action("Edit","Ticket", new { id = item.Id }) title="Edit Ticket">
-                                                    <i class="btn fas fa-edit"></i>
-                                                </a>
+                                                @if (item.CanIEdit)
+                                                {
+                                                    <a href=@Url.Action("Edit", "Ticket", new { id = item.Id }) title="Edit Ticket">
+                                                        <i class="btn fas fa-edit"></i>
+                                                    </a>
+                                                }
                                             </td>
+
+
+
                                             <td class="created">
                                                 @Html.DisplayFor(m => item.DateCreated)
                                             </td>
@@ -67,7 +81,7 @@
                                             <td class="status">
                                                 @Html.DisplayFor(m => item.TicketStatusName)
                                             </td>
-                                            <td class="priority">
+                                            <td class="priority @item.TicketPriorityName">
                                                 @Html.DisplayFor(m => item.TicketPriorityName)
                                             </td>
                                             <td class="creator">

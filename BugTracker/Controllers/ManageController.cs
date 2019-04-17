@@ -108,14 +108,14 @@ namespace BugTracker.Controllers
             {
                 return View("Error");
             }
-            var model = new EditViewModel();
+            var model = new EditNameViewModel();
             model.ScreenName = user.ScreenName;
             ViewBag.isitChanged = false;
             return View(model);
         }
 
         [HttpPost]
-        public ActionResult Edit(EditViewModel formData)
+        public ActionResult Edit(EditNameViewModel formData)
         {
             if (!ModelState.IsValid)
             {

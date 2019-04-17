@@ -6,7 +6,7 @@ using System.Web;
 
 namespace BugTracker.Models.ViewModels
 {
-    public class EditViewModel
+    public class EditNameViewModel
     {
         [Required]
         public string ScreenName { get; set; }

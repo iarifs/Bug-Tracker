@@ -30,6 +30,7 @@ namespace BugTracker.Controllers
                 DateCreated = n.DateCreated,
                 DateUpdated = n.DateUpdated,
                 NumbersOfUsers = n.Users.Count,
+                NumbersOfTickets = n.Tickets.Count,
 
             }).ToList();
 
@@ -171,6 +172,7 @@ namespace BugTracker.Controllers
                     DateCreated = n.DateCreated,
                     DateUpdated = n.DateUpdated,
                     NumbersOfUsers = n.Users.Count,
+                    NumbersOfTickets = n.Tickets.Count,
                 }).ToList();
 
 

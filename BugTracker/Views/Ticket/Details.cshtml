@@ -1,0 +1,186 @@
+﻿@model TicketDetailsViewModel
+@{
+    ViewBag.Title = "Ticket Details";
+}
+
+
+@Html.Partial("_NavBarTop")
+@Html.Partial("_NavBarSide")
+
+<div id="page-wrapper">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-12">
+                <h1 class="page-header">@Model.Title</h1>
+
+            </div>
+            <!-- /.col-lg-12 -->
+        </div>
+        <!-- /.row -->
+        <div class="row">
+            <div class="col-lg-10 col-md-6">
+
+                <div class="panel panel-green">
+                    <div class="panel-heading">
+
+                    </div>
+                    <div class="panel-body">
+
+                        <table class="table table-condensed borderless">
+                            <tbody>
+                                <tr>
+                                    <th>
+                                        @Html.DisplayNameFor(m => m.Id)
+                                    </th>
+                                    <td>
+                                        @Html.DisplayFor(m => m.Id)
+                                    </td>
+                                    <th>
+                                        @Html.DisplayNameFor(m => m.OwnerName)
+                                    </th>
+                                    <td>
+                                        @Html.DisplayFor(m => m.OwnerName)
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th>
+                                        @Html.DisplayNameFor(m => m.DateCreated)
+                                    </th>
+                                    <td>
+                                        @Model.DateCreated
+                                    </td>
+                                    <th>
+                                        @Html.DisplayNameFor(m => m.DateUpdated)
+                                    </th>
+                                    <td>
+                                        @Model.DateUpdated
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th>
+                                        @Html.DisplayNameFor(m => m.TicketType)
+                                    </th>
+                                    <td>
+                                        @Html.DisplayFor(m => m.TicketType)
+                                    </td>
+                                    <th>
+                                        @Html.DisplayNameFor(m => m.TicketPriority)
+                                    </th>
+                                    <td class="@Model.TicketPriority">
+                                        @Html.DisplayFor(m => m.TicketPriority)
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th>
+                                        @Html.DisplayNameFor(m => m.TicketStatus)
+                                    </th>
+                                    <td>
+                                        @Html.DisplayFor(m => m.TicketStatus)
+                                    </td>
+                                    <th>
+                                        @Html.DisplayNameFor(m => m.DeveloperId)
+                                    </th>
+                                    <td>
+                                        @Html.DisplayFor(m => m.DeveloperId)
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th>
+                                        @Html.DisplayNameFor(m => m.Attachments)
+                                    </th>
+                                    <td>
+                                        @foreach (var file in Model.AttachmentList)
+                                        {
+                                            <ul class="list-unstyled">
+                                                <li> <a href="@Url.Content(file.FilePath)" target="_blank">@file.Description</a></li>
+                                            </ul>
+                                        }
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th><a id="file-submission-form" href="#"><i class="fas fa-paperclip"></i>Add</a></th>
+
+                                </tr>
+                            </tbody>
+                        </table>
+                        <div style="display:none" id="file-form">
+                            @Html.ValidationSummary(false, "", new { @class = "text-danger" })
+                            @using (Html.BeginForm("AddAttachment", "TicketAttachment", new { id = Model.Id }, FormMethod.Post, new { enctype = "multipart/form-data" }))
+                            {
+                                <div class="form-group form-inline">
+                                    @Html.LabelFor(m => m.Attachments)
+                                    <input class="form-control" type="file" name="MediaUrl" data-val="true" data-val-required="The image field is required." />
+                                    @Html.TextBoxFor(m => m.AttachmentsDetails, new { @class = "form-control" })
+
+                                    <button class=" form-inline btn btn-success">upload</button>
+                                    @Html.ValidationMessageFor(m => m.AttachmentsDetails)
+                                </div>
+                            }
+                        </div>
+                        <hr />
+                        <a style="padding:15px" href=@Url.Action("Edit","Ticket",new { id = Model.Id })><i class="fas fa-edit">Edit</i></a>
+
+                        @if (User.IsInRole("Admin") || User.IsInRole("Project Manager"))
+                        {
+                        <a id="assignDeveloperForm" href="#"><i class="fas fa-user-plus">Assign To</i></a>
+
+                        using (Html.BeginForm("Details", "Ticket", FormMethod.Post, new { id = "developer-form" }))
+                        {
+                            <div class="form-group">
+                                @Html.LabelFor(m => m.DeveloperId, new { @class = "control-label" })
+                                @Html.DropDownListFor(m => m.DeveloperId, Model.DeveloperList, "Not Assigned", new { @class = "form-control" })
+                            </div>
+                            <button class="btn btn-success">Assign</button>
+                        }
+                        }
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-lg-5 col-md-6">
+                <div class="panel panel-green">
+                    <div class="panel-heading">
+                        Comments <button id="show-box" class="btn btn-default" style="position:absolute;right:50px;top:5px"><i class="fas fa-pen-alt"></i></button>
+                    </div>
+                    <div class="panel-body">
+                        <div id="comment-box" class="form-group" style="display:none">
+
+                            @Html.ValidationSummary(false, "", new { @class = "text-danger" })
+
+                            @using (Html.BeginForm("AddComment", "TicketComment", new { id = Model.Id }, FormMethod.Post))
+                            {
+                                <div class="form-group">
+                                    @Html.TextAreaFor(m => m.CommentDescription, new { @class = "control-label", rows = "5", cols = "50" })
+                                    @Html.ValidationMessageFor(m => m.CommentDescription)
+                                </div>
+                                <button class="btn btn-success">Add Comment</button>
+                            }
+                        </div>
+
+
+                        @foreach (var record in Model.CommentList)
+                        {
+                            <div class="well well-sm">
+                                <div class="header">
+                                    <strong class="primary-font comment-author">@record.User.ScreenName</strong>
+                                    <small class="pull-right text-muted">
+                                        <span class="comment-updated"></span> <span class="comment-created">@record.Created</span>
+                                    </small>
+                                </div>
+                                <p class="comment-content break-word">@record.CommentDescription</p>
+                            </div>
+                        }
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+    <script src="~/Content/Site.js"></script>
+}

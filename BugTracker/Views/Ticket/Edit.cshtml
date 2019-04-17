@@ -1,6 +1,6 @@
 ﻿@model CreateTicketsViewModel
 @{
-    ViewBag.Title = "Create Tickets";
+    ViewBag.Title = "Edit Tickets";
 }
 
 @Html.Partial("_NavBarTop")
@@ -23,7 +23,7 @@
 
                     </div>
                     <div class="panel-body">
-                        @using (Html.BeginForm("Create", "Ticket", FormMethod.Post, new { role = "form" }))
+                        @using (Html.BeginForm("Edit", "Ticket", FormMethod.Post, new { role = "form" }))
                         {
                             @Html.AntiForgeryToken()
                             @Html.ValidationSummary("", new { @class = "text-danger" })
@@ -36,20 +36,21 @@
                                 @Html.LabelFor(m => m.Description, new { @class = "control-label col-md-2" })
                                 @Html.TextAreaFor(m => m.Description, new { @class = "form-control text-box", rows = 8 })
                             </div>
-                            <div class="form-group">
-                                @Html.LabelFor(m => m.ProjectId, new { @class = "control-label col-md-2" })
-                                @Html.DropDownListFor(m => m.ProjectId, Model.AssignedProject,"--Please Select--", new { @class = "form-control" })
-                            </div>
+                           
                             <div class="form-group">
                                 @Html.LabelFor(m => m.TicketTypeId, new { @class = "control-label col-md-2" })
-                                @Html.DropDownListFor(m => m.TicketTypeId, Model.TicketTypes,"--Please Select--",new { @class = "form-control" })
+                                @Html.DropDownListFor(m => m.TicketTypeId, Model.TicketTypes, new { @class = "form-control" })
                             </div>
                             <div class="form-group">
                                 @Html.LabelFor(m => m.TicketPriorityId, new { @class = "control-label col-md-2" })
-                                @Html.DropDownListFor(m => m.TicketPriorityId, Model.TicketPriorites,"--Please Select--",new { @class = "dropdown-item form-control" })
+                                @Html.DropDownListFor(m => m.TicketPriorityId, Model.TicketPriorites, new { @class = "dropdown-item form-control" })
+                            </div>
+                            <div class="form-group">
+                                @Html.LabelFor(m => m.TicketStatusId, new { @class = "control-label col-md-2" })
+                                @Html.DropDownListFor(m => m.TicketStatusId, Model.TicketStatuses, new { @class = "dropdown-item form-control" })
                             </div>
                             <hr />
-                            <input type="submit" value="Create-Ticket" class="btn btn-default" />
+                            <input type="submit" value="Update-Ticket" class="btn btn-default" />
                         }
                     </div>
                 </div>

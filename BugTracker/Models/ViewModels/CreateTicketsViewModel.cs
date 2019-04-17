@@ -27,10 +27,18 @@ namespace BugTracker.Models.ViewModels
         [Display(Name = "Priority")]
         public int TicketPriorityId { get; set; }
 
+        [Required]
+        [Display(Name = "Status")]
+        public int TicketStatusId { get; set; }
+
+
+
         public List<SelectListItem> AssignedProject { get; set; }
 
         public List<SelectListItem> TicketTypes { get; set; }
-        
+
         public List<SelectListItem> TicketPriorites { get; set; }
+
+        public List<SelectListItem> TicketStatuses { get; set; }
     }
 }

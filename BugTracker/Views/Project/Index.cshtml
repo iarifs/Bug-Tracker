@@ -42,7 +42,6 @@
                                         <th class="updated">Updated</th>
                                         <th class="edit"></th>
                                         <th class="add"></th>
-                                        <th class="delete"></th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -76,14 +75,6 @@
                                                 <a href=@Url.Action("ChangeMember","Project", new { id = item.Id }) title="Change Member">
                                                     <i class="btn fas fa-users"></i>
                                                 </a>
-                                            </td>
-
-                                            <td class="delete">
-                                                <form method="post" action="@Url.Action("Delete", "Project", new { id = item.Id })">
-                                                    <button type="submit" class="btn btn-danger">
-                                                        <i class="fas fa-trash-alt"></i>
-                                                    </button>
-                                                </form>
                                             </td>
 
                                         </tr>

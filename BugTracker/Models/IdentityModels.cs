@@ -17,7 +17,12 @@ namespace BugTracker.Models
 
         [InverseProperty("OwnerUser")]
         public virtual List<Ticket> Tickets { get; set; }
+
         public virtual List<Ticket> AssignedTickets { get; set; }
+
+        public virtual List<Comment> Comments { get; set; }
+        
+        public virtual List<Attachment> Attachments { get; set; }
 
         public virtual List<string> AssignRoles { get; set; }
 
@@ -52,6 +57,8 @@ namespace BugTracker.Models
         public DbSet<TicketType> TicketTypes { get; set; }
         public DbSet<TicketStatus> TicketStatuses { get; set; }
         public DbSet<TicketPriority> TicketPriorites { get; set; }
+        public DbSet<Comment> Comments { get; set; }
+        public DbSet<Attachment> Attachments { get; set; }
 
         public static ApplicationDbContext Create()
         {

@@ -23,7 +23,7 @@ namespace BugTracker.Models.Domain
         public TicketStatus TicketStatus { get; set; }
 
         public int TicketPriorityId { get; set; }
-        public TicketPriority TicketPriority { get; set; }
+        public  TicketPriority TicketPriority { get; set; }
 
         public string OwnerUserId { get; set; }
         public virtual ApplicationUser OwnerUser { get; set; }
@@ -31,8 +31,14 @@ namespace BugTracker.Models.Domain
         public string AssignedToUserId { get; set; }
         public virtual ApplicationUser AssignedToUser { get; set; }
 
+        public virtual List<Comment> Comments { get; set; }
+
+        public virtual List<Attachment> Attachments { get; set; }
+
         public Ticket()
         {
+            Comments = new List<Comment>();
+            Attachments = new List<Attachment>();
             DateCreated = DateTime.Now;
         }
 

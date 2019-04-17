@@ -26,5 +26,7 @@ namespace BugTracker.Models.ViewModels
         public string OwnerUserScreenName { get; set; }
 
         public string AssignedToUserScreenName { get; set; }
+
+        public bool CanIEdit { get; set; }
     }
 }

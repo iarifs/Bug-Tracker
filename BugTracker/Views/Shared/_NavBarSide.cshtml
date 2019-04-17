@@ -55,12 +55,6 @@
                         <li>
                             @Html.ActionLink("All Tickets", "Index", "Ticket")
                         </li>
-                        @if (User.IsInRole("Project Manager") || User.IsInRole("Developer"))
-                        {
-                            <li>
-                                @Html.ActionLink("From My Projects", "FromMyProjects", "Ticket")
-                            </li>
-                        }
                         @if (User.IsInRole("Developer"))
                         {
                             <li>
