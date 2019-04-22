@@ -135,6 +135,7 @@ namespace BugTracker.Controllers
             //set ticket to open
             model.TicketStatusId = 1;
             model.OwnerUserId = User.Identity.GetUserId();
+
             Db.Tickets.Add(model);
             Db.SaveChanges();
 
@@ -268,8 +269,13 @@ namespace BugTracker.Controllers
             {
                 return RedirectToAction(nameof(TicketController.Index));
             }
+            //only admin or pm can change developer
+            if (User.IsInRole("Admin") ||
+                User.IsInRole("Project Manager"))
+            {
+                ticket.AssignedToUserId = user.Id;
+            }
 
-            ticket.AssignedToUserId = user.Id;
 
             Db.SaveChanges();
 

@@ -1,4 +1,4 @@
-﻿using System;
+﻿ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -9,7 +9,7 @@ namespace BugTracker.Models.Domain
     {
         public int Id { get; set; }
         public string Name { get; set; }
-        public List<Ticket> Tickets { get; set; }
+        public virtual List<Ticket> Tickets { get; set; }
 
         public TicketStatus()
         {
