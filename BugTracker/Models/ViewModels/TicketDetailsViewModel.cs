@@ -49,6 +49,9 @@ namespace BugTracker.Models.ViewModels
 
         [Required]
         public HttpPostedFileBase MediaUrl { get; set; }
+
+
+        public List<History> Histories { get; set; }
     }
 
 }

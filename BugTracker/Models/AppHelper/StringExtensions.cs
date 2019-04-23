@@ -15,5 +15,10 @@ namespace BugTracker.Models
         {
             return controllerName.Replace("Controller", string.Empty);
         }
+        
+        public static string GetPropertyName(this string itemName)
+        {
+            return itemName.Replace("Id","").Replace("Ticket","");
+        }
     }
 }

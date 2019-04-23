@@ -12,6 +12,7 @@ using System.Web.Mvc;
 using System.Data.Entity;
 using BugTracker.Models.AppHelper;
 using BugTracker.Models.Filters;
+using System.Diagnostics;
 
 namespace BugTracker.Controllers
 {
@@ -174,6 +175,9 @@ namespace BugTracker.Controllers
             model.TicketPriorites = getSelectList.OfTicketPriority();
             model.TicketTypes = getSelectList.OfTicketType();
             model.TicketStatuses = getSelectList.OfTicketStatus();
+            model.TicketStatusId = ticket.TicketStatusId;
+            model.TicketTypeId = ticket.TicketTypeId;
+            model.TicketPriorityId = ticket.TicketPriorityId;
 
 
             return View(model);
@@ -193,7 +197,23 @@ namespace BugTracker.Controllers
                 return View();
             }
 
+
             var model = Db.Tickets.FirstOrDefault(p => p.Id == id);
+
+
+            var log = new TrackChanges(Db, model, form);
+
+            if (log.IsItChanged())
+            {
+                var allValues = log.ModifiedValues();
+
+                foreach (var item in allValues)
+                {
+                    item.UserId = User.Identity.GetUserId();
+                    Db.Histories.Add(item);
+                }
+                Db.SaveChanges();
+            }
 
             model.Title = form.Title;
             model.Description = form.Description;
@@ -203,8 +223,10 @@ namespace BugTracker.Controllers
             model.DateUpdated = DateTime.Now;
             Db.SaveChanges();
 
-            return RedirectToAction(nameof(TicketController.Index));
+
+            return RedirectToAction(nameof(TicketController.Details),new {id = model.Id });
         }
+
 
         [HttpGet]
         [CustomActionFilter]
@@ -248,6 +270,7 @@ namespace BugTracker.Controllers
             model.DeveloperList = getSelectList.OfDeveloper();
             model.CommentList = ticket.Comments.Where(p => p.TicketId == ticket.Id).ToList();
             model.AttachmentList = ticket.Attachments.Where(p => p.TicketId == ticket.Id).ToList();
+            model.Histories = ticket.Histories.Where(p => p.TicketId == ticket.Id).OrderByDescending(p=> p.Id).ToList();
 
             return View(model);
         }
@@ -263,9 +286,9 @@ namespace BugTracker.Controllers
 
             var ticket = Db.Tickets.FirstOrDefault(p => p.Id == id);
 
-            var user = Db.Users.FirstOrDefault(p => p.Id == form.DeveloperId);
+            var developer = Db.Users.FirstOrDefault(p => p.Id == form.DeveloperId);
 
-            if (ticket == null || user == null)
+            if (ticket == null || developer == null)
             {
                 return RedirectToAction(nameof(TicketController.Index));
             }
@@ -273,7 +296,9 @@ namespace BugTracker.Controllers
             if (User.IsInRole("Admin") ||
                 User.IsInRole("Project Manager"))
             {
-                ticket.AssignedToUserId = user.Id;
+                ticket.AssignedToUserId = developer.Id;
+
+
             }
 
 

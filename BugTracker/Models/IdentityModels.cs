@@ -24,7 +24,10 @@ namespace BugTracker.Models
         
         public virtual List<Attachment> Attachments { get; set; }
 
+        public virtual List<History> Histories { get; set; }
+
         public virtual List<string> AssignRoles { get; set; }
+
 
         public ApplicationUser()
         {
@@ -59,6 +62,7 @@ namespace BugTracker.Models
         public DbSet<TicketPriority> TicketPriorites { get; set; }
         public DbSet<Comment> Comments { get; set; }
         public DbSet<Attachment> Attachments { get; set; }
+        public DbSet<History> Histories { get; set; }
 
         public static ApplicationDbContext Create()
         {

@@ -15,7 +15,7 @@ namespace BugTracker.Models.Domain
 
         public int ProjectId { get; set; }
         public Project Project { get; set; }
-
+        
         public int TicketTypeId { get; set; }
         public TicketType TicketType { get; set; }
 
@@ -35,10 +35,13 @@ namespace BugTracker.Models.Domain
 
         public virtual List<Attachment> Attachments { get; set; }
 
+        public virtual List<History> Histories { get; set; }
+
         public Ticket()
         {
             Comments = new List<Comment>();
             Attachments = new List<Attachment>();
+            Histories = new List<History>();
             DateCreated = DateTime.Now;
         }
 

@@ -189,16 +189,19 @@
     <Compile Include="Controllers\TicketAttachmentController.cs" />
     <Compile Include="Controllers\TicketCommentController.cs" />
     <Compile Include="Controllers\TicketController.cs" />
+    <Compile Include="Controllers\TicketHistoryController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\AppHelper\TrackChanges.cs" />
     <Compile Include="Models\AppHelper\GetSelectList.cs" />
     <Compile Include="Models\AppHelper\StringExtensions.cs" />
     <Compile Include="Models\AppHelper\UserRolesHelper.cs" />
     <Compile Include="Models\Domain\Attachment.cs" />
     <Compile Include="Models\Domain\Comment.cs" />
+    <Compile Include="Models\Domain\History.cs" />
     <Compile Include="Models\Domain\TypesOfTickets.cs" />
     <Compile Include="Models\Domain\Project.cs" />
     <Compile Include="Models\Domain\TicketPriority.cs" />
@@ -311,6 +314,7 @@
     <Folder Include="App_Data\" />
     <Folder Include="Views\TicketAttachment\" />
     <Folder Include="Views\TicketComment\" />
+    <Folder Include="Views\TicketHistory\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />

@@ -122,59 +122,74 @@
 
                         @if (User.IsInRole("Admin") || User.IsInRole("Project Manager"))
                         {
-                        <a id="assignDeveloperForm" href="#"><i class="fas fa-user-plus">Assign To</i></a>
+                            <a id="assignDeveloperForm" href="#"><i class="fas fa-user-plus">Assign To</i></a>
 
-                        using (Html.BeginForm("Details", "Ticket", FormMethod.Post, new { id = "developer-form" }))
-                        {
-                            <div class="form-group">
-                                @Html.LabelFor(m => m.DeveloperId, new { @class = "control-label" })
-                                @Html.DropDownListFor(m => m.DeveloperId, Model.DeveloperList, "Not Assigned", new { @class = "form-control" })
-                            </div>
-                            <button class="btn btn-success">Assign</button>
-                        }
+                            using (Html.BeginForm("Details", "Ticket", FormMethod.Post, new { id = "developer-form" }))
+                            {
+                                <div class="form-group">
+                                    @Html.LabelFor(m => m.DeveloperId, new { @class = "control-label" })
+                                    @Html.DropDownListFor(m => m.DeveloperId, Model.DeveloperList, "Not Assigned", new { @class = "form-control" })
+                                </div>
+                                <button class="btn btn-success">Assign</button>
+                            }
                         }
                     </div>
                 </div>
 
             </div>
         </div>
+        <div class="visible-lg-inline-block col-lg-5">
+            <div class="panel panel-green">
+                <div class="panel-heading">
+                    Change Histories
+                </div>
+                <div class="panel-body">
+                    <ul class="list-group">
+                        @foreach (var record in Model.Histories)
+                        {
+                            <li class="list-group-item list-group-item-heading list-group-item-info">
+                                <strong class="primary-font comment-author">@record.User.ScreenName</strong>
+                        Modified  @record.Property - @record.NewValueName  from - @record.OldValueName
+                            </li>
+                        }
+                    </ul>
+                </div>
+            </div>
+        </div>
 
-        <div class="row">
-            <div class="col-lg-5 col-md-6">
-                <div class="panel panel-green">
-                    <div class="panel-heading">
-                        Comments <button id="show-box" class="btn btn-default" style="position:absolute;right:50px;top:5px"><i class="fas fa-pen-alt"></i></button>
+        <div class=" visible-lg-inline-block col-lg-5">
+            <div class="panel panel-green">
+                <div class="panel-heading">
+                    Comments <button id="show-box" class="btn btn-default" style="position:absolute;right:50px;top:5px"><i class="fas fa-pen-alt"></i></button>
+                </div>
+                <div class="panel-body">
+                    <div id="comment-box" class="form-group" style="display:none">
+
+                        @Html.ValidationSummary(false, "", new { @class = "text-danger" })
+
+                        @using (Html.BeginForm("AddComment", "TicketComment", new { id = Model.Id }, FormMethod.Post))
+                        {
+                            <div class="form-group">
+                                @Html.TextAreaFor(m => m.CommentDescription, new { @class = "control-label", rows = "5", cols = "50" })
+                                @Html.ValidationMessageFor(m => m.CommentDescription)
+                            </div>
+                            <button class="btn btn-success">Add Comment</button>
+                        }
                     </div>
-                    <div class="panel-body">
-                        <div id="comment-box" class="form-group" style="display:none">
 
-                            @Html.ValidationSummary(false, "", new { @class = "text-danger" })
-
-                            @using (Html.BeginForm("AddComment", "TicketComment", new { id = Model.Id }, FormMethod.Post))
-                            {
-                                <div class="form-group">
-                                    @Html.TextAreaFor(m => m.CommentDescription, new { @class = "control-label", rows = "5", cols = "50" })
-                                    @Html.ValidationMessageFor(m => m.CommentDescription)
-                                </div>
-                                <button class="btn btn-success">Add Comment</button>
-                            }
-                        </div>
-
-
+                    <ul class="list-group">
                         @foreach (var record in Model.CommentList)
                         {
-                            <div class="well well-sm">
-                                <div class="header">
-                                    <strong class="primary-font comment-author">@record.User.ScreenName</strong>
-                                    <small class="pull-right text-muted">
-                                        <span class="comment-updated"></span> <span class="comment-created">@record.Created</span>
-                                    </small>
-                                </div>
-                                <p class="comment-content break-word">@record.CommentDescription</p>
-                            </div>
-                        }
+                            <li class="list-group-item list-group-item-info list-group-item-heading">
+                                <strong class="primary-font comment-author">@record.User.ScreenName</strong>
+                                <small class="pull-right text-muted">
+                                    <span class="comment-updated"></span> <span class="comment-created">@record.Created</span>
+                                </small>
+                                @record.CommentDescription
 
-                    </div>
+                            </li>
+                        }
+                    </ul>
                 </div>
             </div>
         </div>
