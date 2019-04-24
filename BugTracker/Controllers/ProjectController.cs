@@ -149,6 +149,7 @@ namespace BugTracker.Controllers
                 {
                     Db.Projects.Add(project);
                 }
+
                 project.Name = form.Name;
                 project.Description = form.Description;
             }

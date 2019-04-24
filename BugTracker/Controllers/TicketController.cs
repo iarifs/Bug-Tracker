@@ -194,6 +194,7 @@ namespace BugTracker.Controllers
 
 
         [HttpPost]
+        [CustomActionFilter]
         public ActionResult Edit(int? id, CreateTicketsViewModel form)
         {
             if (!id.HasValue)
@@ -209,10 +210,11 @@ namespace BugTracker.Controllers
 
             var model = Db.Tickets.FirstOrDefault(p => p.Id == id);
 
+            var currentUserId = User.Identity.GetUserId();
 
             var log = new TrackChanges(Db, model, form);
 
-            if (log.IsItChanged())
+            if (log.IsTicketEdited())
             {
                 var allValues = log.ModifiedValues();
 
@@ -222,6 +224,25 @@ namespace BugTracker.Controllers
                     Db.Histories.Add(item);
                 }
                 Db.SaveChanges();
+            }
+
+            //check if there is any change in our ticket 
+            //also check there has any developer assigned to this ticket
+            //also check that if developer edit the ticket they will not get any notification.
+            if (log.IsTicketEdited()
+                && model.AssignedToUser != null
+                && model.AssignedToUserId != currentUserId)
+            {
+                string deatilsUrl = $"http://localhost:62930/Ticket/Details/{model.Id}";
+
+                string subject = $"See Updates @ {model.Title}";
+
+                string body = $"There are some update to this <b><i>{model.Title}</i></b> ticket. " +
+                    $" Please visit the <a href=\"" + deatilsUrl + "\">link</a> to see the details";
+
+                userManager.SendEmail(model.AssignedToUserId, subject, body);
+
+                var notifyUsers = model.NotifyUsers
             }
 
             model.Title = form.Title;
@@ -277,15 +298,18 @@ namespace BugTracker.Controllers
             model.TicketStatus = ticket.TicketStatus.Name;
             model.TicketType = ticket.TicketType.Name;
             model.DeveloperList = getSelectList.OfDeveloper();
-            model.CommentList = ticket.Comments.Where(p => p.TicketId == ticket.Id).ToList();
+            model.CommentList = ticket.Comments.Where(p => p.TicketId == ticket.Id).OrderByDescending(p => p.Id).ToList();
             model.AttachmentList = ticket.Attachments.Where(p => p.TicketId == ticket.Id).ToList();
             model.Histories = ticket.Histories.Where(p => p.TicketId == ticket.Id).OrderByDescending(p => p.Id).ToList();
+
+            ViewBag.notifyUser = ticket.NotifyUsers.Select(p => p.UserName).ToList();
 
             return View(model);
         }
 
 
         [HttpPost]
+        [CustomActionFilter]
         public ActionResult Details(int? id, TicketDetailsViewModel form)
         {
             if (!id.HasValue)
@@ -297,10 +321,6 @@ namespace BugTracker.Controllers
 
             var developer = Db.Users.FirstOrDefault(p => p.Id == form.DeveloperId);
 
-            string subject = $"See Updates @ {ticket.Title}";
-            string body = $"You are assigned to a ticket." +
-                $"Go to the link to see the details";
-
             if (ticket == null || developer == null)
             {
                 return RedirectToAction(nameof(TicketController.Index));
@@ -310,7 +330,15 @@ namespace BugTracker.Controllers
                 User.IsInRole("Project Manager"))
             {
                 ticket.AssignedToUserId = developer.Id;
-                userManager.SendEmail(developer.Id, subject,body);
+
+                string deatilsUrl = $"http://localhost:62930/Ticket/Details/{ticket.Id}";
+
+                string subject = $"See Updates @ {ticket.Title}";
+
+                string body = $"You are assigned to this <b><i>{ticket.Title}</i></b> ticket. " +
+                    $" Please visit the <a href=\"" + deatilsUrl + "\">link</a> to see the details";
+
+                userManager.SendEmail(ticket.AssignedToUserId, subject, body);
 
             }
 
@@ -338,6 +366,42 @@ namespace BugTracker.Controllers
         public ActionResult UnAthorizedAccess()
         {
             return View();
+        }
+
+
+        [HttpPost]
+        [Authorize(Roles = "Admin, Project Manager")]
+        public ActionResult NotificationSwitch(int? ticketId, string notify)
+        {
+            if (!ticketId.HasValue)
+            {
+                return RedirectToAction(nameof(TicketController.Index));
+            }
+
+            var ticket = Db.Tickets.FirstOrDefault(P => P.Id == ticketId);
+
+            var currentUserId = User.Identity.GetUserId();
+
+            var userById = Db.Users.FirstOrDefault(p => p.Id == currentUserId);
+
+            if (ticket == null)
+            {
+                return RedirectToAction(nameof(TicketController.Index));
+            }
+
+            if (notify == "on" )
+            {
+                ticket.NotifyUsers.Add(userById);
+            }
+
+            if (notify == "off")
+            {
+                ticket.NotifyUsers.Remove(userById);
+            }
+
+            Db.SaveChanges();
+
+            return RedirectToAction(nameof(TicketController.Details), new { id = ticketId });
         }
     }
 }

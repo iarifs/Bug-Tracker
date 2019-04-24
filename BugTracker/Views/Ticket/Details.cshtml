@@ -1,6 +1,7 @@
 ﻿@model TicketDetailsViewModel
 @{
     ViewBag.Title = "Ticket Details";
+    var userList = ((List<string>)ViewBag.notifyUser);
 }
 
 
@@ -83,6 +84,7 @@
                                     <td>
                                         @Html.DisplayFor(m => m.DeveloperId)
                                     </td>
+
                                 </tr>
                                 <tr>
                                     <th>
@@ -96,7 +98,30 @@
                                             </ul>
                                         }
                                     </td>
+
+                                    @if (User.IsInRole("Admin") ||
+                                        User.IsInRole("Project Mananger"))
+                                    {
+                                        <th>
+                                            Notification:
+                                            &nbsp;&nbsp; <i class="@(userList.Any(name => name == User.Identity.Name) ? "silent fas fa-bell-slash":"bell fas fa-bell")"></i>
+                                        </th>
+                                        <td>
+                                            @using (Html.BeginForm("NotificationSwitch", "Ticket", new { ticketId = Model.Id }))
+                                            {
+                                                <label class="switch">
+                                                    <input type="checkbox" name="notify" onChange="this.form.submit()"
+                                                           value=@(userList.Any(name => name == User.Identity.Name)?"off": "on") />
+                                                    <span class="slider round  @(userList.Any(name => name == User.Identity.Name)?"checkButton" : "")">
+
+                                                    </span>
+                                                </label>
+                                            }
+                                        </td>
+                                    }
+
                                 </tr>
+
                                 <tr>
                                     <th><a id="file-submission-form" href="#"><i class="fas fa-paperclip"></i>Add</a></th>
 
@@ -149,7 +174,7 @@
                         {
                             <li class="list-group-item list-group-item-heading list-group-item-info">
                                 <strong class="primary-font comment-author">@record.User.ScreenName</strong>
-                        Modified  @record.Property - @record.NewValueName  from - @record.OldValueName
+                                Modified  @record.Property - @record.NewValueName  from - @record.OldValueName
                             </li>
                         }
                     </ul>

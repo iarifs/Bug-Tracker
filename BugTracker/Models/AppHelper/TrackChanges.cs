@@ -20,7 +20,7 @@ namespace BugTracker.Models.AppHelper
             FormData = dataFromView;
         }
 
-        public bool IsItChanged()
+        public bool IsTicketEdited()
         {
             if (Model.Title != FormData.Title ||
                 Model.Description != FormData.Description ||
@@ -72,7 +72,12 @@ namespace BugTracker.Models.AppHelper
             return Histories;
         }
 
-        private void AddToHistoryList(List<History> histories, string property, string oldValue, string newValue)
+
+
+        private void AddToHistoryList(List<History> histories,
+            string property,
+            string oldValue, 
+            string newValue)
         {
             var history = new History();
             history.TicketId = Model.Id;

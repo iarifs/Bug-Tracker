@@ -37,6 +37,8 @@ namespace BugTracker.Models.Domain
 
         public virtual List<History> Histories { get; set; }
 
+        public virtual List<ApplicationUser> NotifyUsers { get; set; }
+
         public Ticket()
         {
             Comments = new List<Comment>();

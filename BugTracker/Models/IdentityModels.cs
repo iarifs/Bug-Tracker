@@ -28,6 +28,9 @@ namespace BugTracker.Models
 
         public virtual List<string> AssignRoles { get; set; }
 
+        [InverseProperty("NotifyUsers")]
+        public virtual List<Ticket> NotifyTickets { get; set; }
+
 
         public ApplicationUser()
         {
@@ -67,6 +70,21 @@ namespace BugTracker.Models
         public static ApplicationDbContext Create()
         {
             return new ApplicationDbContext();
+        }
+
+        protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        {
+            base.OnModelCreating(modelBuilder);
+
+            modelBuilder.Entity<ApplicationUser>()
+                .HasMany<Ticket>(p => p.NotifyTickets)
+                .WithMany(p => p.NotifyUsers)
+                .Map(x =>
+                {
+                    x.MapLeftKey("UserId");
+                    x.MapRightKey("TicketId");
+                    x.ToTable("TicketNotifications");
+                });
         }
     }
 }
