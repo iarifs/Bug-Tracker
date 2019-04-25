@@ -10,6 +10,7 @@ using System.Web.Mvc;
 using Microsoft.AspNet.Identity;
 using BugTracker.Models.Filters;
 using Microsoft.AspNet.Identity.Owin;
+using BugTracker.Models.AppHelper;
 
 namespace BugTracker.Controllers
 {
@@ -39,6 +40,8 @@ namespace BugTracker.Controllers
         {
             var ticket = Db.Tickets.FirstOrDefault(p => p.Id == id);
 
+            var mailHelper = new MailSender(userManager, ticket);
+
             var currentUserId = User.Identity.GetUserId();
 
             if (ticket != null && form.MediaUrl != null)
@@ -67,18 +70,8 @@ namespace BugTracker.Controllers
 
                 Db.SaveChanges();
 
-                if (!string.IsNullOrWhiteSpace(ticket.AssignedToUserId) &&
-               currentUserId != ticket.AssignedToUserId)
-                {
-                    string deatilsUrl = $"http://localhost:62930/Ticket/Details/{ticket.Id}";
+                mailHelper.Send(currentUserId);
 
-                    string subject = $"See Updates @ {ticket.Title}";
-
-                    string body = $"An user upload an attachment  in  <b><i>{ticket.Title}</i></b>. " +
-                        $" Please visit the <a href=\"" + deatilsUrl + "\">link</a> to see the details";
-
-                    userManager.SendEmail(ticket.AssignedToUserId, subject, body);
-                }
             }
 
             return RedirectToAction(nameof(TicketController.Details), nameof(TicketController).ToControllerName(), new { id = id });

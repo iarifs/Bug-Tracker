@@ -193,7 +193,6 @@ input:checked + .slider:before {
 
 .bell {
     position: absolute;
-    top: 50%;
     display: block;
     font-size: 20px;
     color: #fff200;
@@ -202,7 +201,6 @@ input:checked + .slider:before {
 }
 .silent {
     position: absolute;
-    top: 50%;
     display: block;
     font-size: 18px;
     color: #eb2f06;

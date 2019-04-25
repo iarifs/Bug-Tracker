@@ -1,4 +1,5 @@
 ﻿using BugTracker.Models;
+using BugTracker.Models.AppHelper;
 using BugTracker.Models.Domain;
 using BugTracker.Models.ViewModels;
 using Microsoft.AspNet.Identity;
@@ -41,6 +42,8 @@ namespace BugTracker.Controllers
 
             var ticket = Db.Tickets.FirstOrDefault(p => p.Id == id);
 
+            var mailHelper = new MailSender(userManager, ticket);
+
             var currentUserId = User.Identity.GetUserId();
 
             if (ticket != null)
@@ -53,20 +56,8 @@ namespace BugTracker.Controllers
             }
             Db.SaveChanges();
 
-            //checking that we have developer in our list
-            //and if developer edit himself he will not get any notification
-            if (!string.IsNullOrWhiteSpace(ticket.AssignedToUserId) &&
-                currentUserId != ticket.AssignedToUserId)
-            {
-                string deatilsUrl = $"http://localhost:62930/Ticket/Details/{ticket.Id}";
+            mailHelper.Send(currentUserId);
 
-                string subject = $"See Updates @ {ticket.Title}";
-
-                string body = $"An user commented  in <b><i>{ticket.Title}</i></b>." +
-                    $" Please visit the <a href=\"" + deatilsUrl + "\">link</a> to see the details";
-
-                userManager.SendEmail(ticket.AssignedToUserId, subject, body);
-            }
 
             return RedirectToAction(nameof(TicketController.Details), nameof(TicketController).ToControllerName(), new { id = id });
         }

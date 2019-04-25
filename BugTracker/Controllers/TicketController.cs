@@ -58,7 +58,6 @@ namespace BugTracker.Controllers
 
             var userRole = userManager.GetRoles(userId);
 
-
             if (User.IsInRole("Admin") ||
                 User.IsInRole("Project Manager"))
             {
@@ -214,6 +213,11 @@ namespace BugTracker.Controllers
 
             var log = new TrackChanges(Db, model, form);
 
+            var mailHelper = new MailSender(userManager, model);
+
+            //check if there is any change in our ticket 
+            //also check there has any developer assigned to this ticket
+            //also check that if developer edit the ticket they will not get any notification.
             if (log.IsTicketEdited())
             {
                 var allValues = log.ModifiedValues();
@@ -223,27 +227,13 @@ namespace BugTracker.Controllers
                     item.UserId = User.Identity.GetUserId();
                     Db.Histories.Add(item);
                 }
+
+                mailHelper.Send(currentUserId);
+
                 Db.SaveChanges();
             }
 
-            //check if there is any change in our ticket 
-            //also check there has any developer assigned to this ticket
-            //also check that if developer edit the ticket they will not get any notification.
-            if (log.IsTicketEdited()
-                && model.AssignedToUser != null
-                && model.AssignedToUserId != currentUserId)
-            {
-                string deatilsUrl = $"http://localhost:62930/Ticket/Details/{model.Id}";
 
-                string subject = $"See Updates @ {model.Title}";
-
-                string body = $"There are some update to this <b><i>{model.Title}</i></b> ticket. " +
-                    $" Please visit the <a href=\"" + deatilsUrl + "\">link</a> to see the details";
-
-                userManager.SendEmail(model.AssignedToUserId, subject, body);
-
-                var notifyUsers = model.NotifyUsers
-            }
 
             model.Title = form.Title;
             model.Description = form.Description;
@@ -389,7 +379,7 @@ namespace BugTracker.Controllers
                 return RedirectToAction(nameof(TicketController.Index));
             }
 
-            if (notify == "on" )
+            if (notify == "on")
             {
                 ticket.NotifyUsers.Add(userById);
             }

@@ -195,6 +195,7 @@
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\AppHelper\MailSender.cs" />
     <Compile Include="Models\AppHelper\TrackChanges.cs" />
     <Compile Include="Models\AppHelper\GetSelectList.cs" />
     <Compile Include="Models\AppHelper\StringExtensions.cs" />
