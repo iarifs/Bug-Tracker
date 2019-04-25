@@ -35,10 +35,7 @@ namespace BugTracker.Models.AppHelper
             {
                 foreach (var u in notifyUsers)
                 {
-                    if (u.Id != currentUserId)
-                    {
-                        UserManager.SendEmail(u.Id, subject, body);
-                    }
+                    UserManager.SendEmail(u.Id, subject, body);
                 }
             }
 

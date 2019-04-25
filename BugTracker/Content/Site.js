@@ -11,4 +11,5 @@
     $("#file-submission-form").click(function () {
         $("#file-form").toggle("slow");
     });
+   
 });

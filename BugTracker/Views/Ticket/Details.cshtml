@@ -91,12 +91,12 @@
                                         @Html.DisplayNameFor(m => m.Attachments)
                                     </th>
                                     <td>
-                                        @foreach (var file in Model.AttachmentList)
-                                        {
-                                            <ul class="list-unstyled">
+                                        <ul class="list-unstyled files">
+                                            @foreach (var file in Model.AttachmentList)
+                                            {
                                                 <li> <a href="@Url.Content(file.FilePath)" target="_blank">@file.Description</a></li>
-                                            </ul>
-                                        }
+                                            }
+                                        </ul>
                                     </td>
 
                                     @if (User.IsInRole("Admin") ||
@@ -104,7 +104,7 @@
                                     {
                                         <th>
                                             Notification:
-                                            &nbsp;&nbsp; <i class="@(userList.Any(name => name == User.Identity.Name) ? "silent fas fa-bell-slash":"bell fas fa-bell")"></i>
+                                            &nbsp;&nbsp; <i class="@(userList.Any(name => name == User.Identity.Name) ? "bell fas fa-bell": "silent fas fa-bell-slash")"></i>
                                         </th>
                                         <td>
                                             @using (Html.BeginForm("NotificationSwitch", "Ticket", new { ticketId = Model.Id }))
