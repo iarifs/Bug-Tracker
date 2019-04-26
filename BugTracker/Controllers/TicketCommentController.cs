@@ -1,6 +1,7 @@
 ﻿using BugTracker.Models;
 using BugTracker.Models.AppHelper;
 using BugTracker.Models.Domain;
+using BugTracker.Models.Filters;
 using BugTracker.Models.ViewModels;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
@@ -37,10 +38,15 @@ namespace BugTracker.Controllers
 
             if (!id.HasValue)
             {
-                return RedirectToAction(nameof(TicketController.Index));
+                return RedirectToAction(nameof(TicketController.Index), nameof(TicketController).ToControllerName());
             }
 
-            var ticket = Db.Tickets.FirstOrDefault(p => p.Id == id);
+            var ticket = Db.Tickets.Where(p => !p.Project.IsArchived).FirstOrDefault(p => p.Id == id);
+
+            if(ticket == null)
+            {
+                return RedirectToAction(nameof(TicketController.Index), nameof(TicketController).ToControllerName());
+            }
 
             var mailHelper = new MailSender(userManager, ticket);
 
@@ -61,5 +67,52 @@ namespace BugTracker.Controllers
 
             return RedirectToAction(nameof(TicketController.Details), nameof(TicketController).ToControllerName(), new { id = id });
         }
+
+        [HttpPost]
+        [CommentModifyActionFilter]
+        public ActionResult Delete(int? id)
+        {
+            if (!id.HasValue)
+            {
+                return RedirectToAction(nameof(TicketController.Index));
+            }
+
+            var comment = Db.Comments.Where(p => !p.Ticket.Project.IsArchived).FirstOrDefault(p => p.Id == id);
+
+            if (comment == null)
+            {
+                return RedirectToAction(nameof(TicketController.Index));
+            }
+
+            Db.Comments.Remove(comment);
+            Db.SaveChanges();
+
+            return RedirectToAction(nameof(TicketController.Details), nameof(TicketController).ToControllerName(), new { id = comment.TicketId });
+        }
+
+        [HttpPost]
+        [CommentModifyActionFilter]
+        public ActionResult Edit(int? id, string description)
+        {
+            if (!id.HasValue || string.IsNullOrWhiteSpace(description))
+            {
+                return RedirectToAction(nameof(TicketController.Index),nameof(TicketController).ToControllerName());
+            }
+
+            var comment = Db.Comments.Where(p => !p.Ticket.Project.IsArchived).FirstOrDefault(p => p.Id == id);
+            
+            var currentUserId = User.Identity.GetUserId();
+
+            if (comment != null)
+            {
+                comment.CommentDescription = description;
+            }
+            Db.SaveChanges();
+            
+            return RedirectToAction(nameof(TicketController.Details), nameof(TicketController).ToControllerName(), new { id = comment.TicketId });
+
+        }
+
+
     }
 }

@@ -94,7 +94,20 @@
                                         <ul class="list-unstyled files">
                                             @foreach (var file in Model.AttachmentList)
                                             {
-                                                <li> <a href="@Url.Content(file.FilePath)" target="_blank">@file.Description</a></li>
+                                                <li>
+                                                    @if ((User.IsInRole("Admin") || User.IsInRole("Project Manager")) ||
+                                                         (file.User.UserName == User.Identity.Name))
+                                                    {
+                                                        <form method="post" action="@Url.Action("Delete", "TicketAttachment", new { id = file.Id})">
+                                                            <span class="cross-button" style="display:none">
+                                                                <button class="btn-link">
+                                                                    <i class="fas fa-times separate"></i>
+                                                                </button>
+                                                            </span>
+                                                        </form>
+                                                    }
+                                                    <a href="@Url.Content(file.FilePath)" target="_blank">@file.Description</a>
+                                                </li>
                                             }
                                         </ul>
                                     </td>
@@ -123,7 +136,15 @@
                                 </tr>
 
                                 <tr>
-                                    <th><a id="file-submission-form" href="#"><i class="fas fa-paperclip"></i>Add</a></th>
+                                    <th>
+                                        <a id="file-submission-form" href="#"><i class="fas fa-paperclip"></i>Add</a>
+
+                                        @if (Model.AttachmentList.Any())
+                                        {
+                                            <a id="file-remove" href="#"><i class="fas fa-times separate"></i>Remove</a>
+
+                                        }
+                                    </th>
 
                                 </tr>
                             </tbody>
@@ -210,8 +231,32 @@
                                 <small class="pull-right text-muted">
                                     <span class="comment-updated"></span> <span class="comment-created">@record.Created</span>
                                 </small>
-                                @record.CommentDescription
+                                <div class="details-box">
+                                    @record.CommentDescription
+                                </div>
+                                @using (Html.BeginForm("Edit", "TicketComment", new { id = record.Id }, FormMethod.Post, new { @class = "hide-edit" }))
+                                {
+                                    <div class="form-group">
+                                        <textarea class="control-label" name="description" rows="5" ,cols="32" data-val-required="The Name field is required." data-val="true">@record.CommentDescription</textarea>
 
+                                    </div>
+                                    <input type="submit" class="btn btn-default" value="Submit" />
+                                    <span class="btn btn-default" id="cancel-edit">Cancel</span>
+                                }
+                                @if ((User.IsInRole("Admin") || User.IsInRole("Project Manager")) ||
+                                    (record.User.UserName == User.Identity.Name))
+                                {
+                                    <div class="edit-delete">
+                                        <button class="btn-link" id="edit-comment-button">
+                                            <i class="fas fa-edit"></i>
+                                        </button>
+                                        <form style="display:inline;" method="post" action="@Url.Action("Delete","TicketComment",new {id = record.Id })">
+                                            <button class="btn-link">
+                                                <i style="color:red" class="fas fa-trash-alt"></i>
+                                            </button>
+                                        </form>
+                                    </div>
+                                }
                             </li>
                         }
                     </ul>

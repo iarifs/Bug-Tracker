@@ -34,7 +34,12 @@
                 @if (User.IsInRole("Admin") || User.IsInRole("Project Manager"))
                 {
                     <li>
-                        <a href="@Url.Action("Index", "Project")"><i class="fas fa-tasks"></i> All Projects</a>
+                        <a href="@Url.Action("Archive","Project")">
+                            <i class="fas fa-box"></i> Archive Projects
+                        </a>
+                    </li>
+                    <li>
+                        <a href="@Url.Action("Index", "Project")" ><i class="fas fa-tasks"></i> All Projects</a>
                     </li>
                 }
 
@@ -42,7 +47,7 @@
                     <a href="@Url.Action("MyProjects", "Project")"><i class="fa fa-table fa-fw"></i> My Projects</a>
                 </li>
                 <li id="active-dropdown">
-                    <a href="#"><i id ="drop-icon"class="fas fa-chevron-down"></i>Tickets</a>
+                    <a href="#"><i id="drop-icon" class="fas fa-chevron-down"></i>Tickets</a>
                     <ul id="dropdown-menu" class="nav nav-second-level">
                         @if (User.IsInRole("Submitter"))
                         {

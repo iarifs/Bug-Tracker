@@ -38,7 +38,7 @@ namespace BugTracker.Controllers
         [CustomActionFilter]
         public ActionResult AddAttachment(int id, TicketDetailsViewModel form)
         {
-            var ticket = Db.Tickets.FirstOrDefault(p => p.Id == id);
+            var ticket = Db.Tickets.Where(p => !p.Project.IsArchived).FirstOrDefault(p => p.Id == id);
 
             var mailHelper = new MailSender(userManager, ticket);
 
@@ -75,6 +75,31 @@ namespace BugTracker.Controllers
             }
 
             return RedirectToAction(nameof(TicketController.Details), nameof(TicketController).ToControllerName(), new { id = id });
+        }
+
+
+
+        [HttpPost]
+        [DeleteAttachmentActionFilter]
+        public ActionResult Delete(int? id)
+        {
+            if (!id.HasValue)
+            {
+                return RedirectToAction(nameof(TicketController.Index));
+            }
+
+            var attachment = Db.Attachments.Where(p => !p.Ticket.Project.IsArchived).FirstOrDefault(p => p.Id == id);
+
+            if (attachment == null)
+            {
+                return RedirectToAction(nameof(TicketController.Index));
+            }
+
+            Db.Attachments.Remove(attachment);
+            Db.SaveChanges();
+
+            return RedirectToAction(nameof(TicketController.Details), nameof(TicketController).ToControllerName(), new { id = attachment.TicketId });
+
         }
     }
 }

@@ -1,0 +1,64 @@
+﻿@model List<ProjectListViewModel>
+@{
+    ViewBag.Title = "Archive";
+}
+
+@Html.Partial("_NavBarTop")
+@Html.Partial("_NavBarSide")
+
+<div id="page-wrapper">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-12">
+                <h1 class="page-header">Archive Projects</h1>
+
+            </div>
+            <!-- /.col-lg-12 -->
+        </div>
+        <!-- /.row -->
+        <div class="row">
+            <div class="col-lg-10 col-md-6">
+
+                <div class="panel panel-green">
+                    <div class="panel-heading">
+
+                    </div>
+                    <div class="panel-body">
+
+                        <table class="table table-condensed borderless">
+                            <tbody>
+                                <tr>
+                                    <th>
+                                        @if (Model.Count > 0)
+                                        {
+                                            <form class="archive" method="post" action="@Url.Action("Archive","Project")">
+                                                @foreach (var item in Model)
+                                                {
+
+                                                    <div class="[ form-group ]">
+                                                        <input type="checkbox" name="projectId" id="fancy-checkbox-info-@item.Id" value="@item.Id" />
+                                                        <div class="[ btn-group ]">
+                                                            <label for="fancy-checkbox-info-@item.Id" class="[ btn btn-info ]">
+                                                                <span class="[ glyphicon glyphicon-ok ]"></span>
+                                                                <span> </span>
+                                                            </label>
+                                                            <label for="fancy-checkbox-info-@item.Id" class="[ btn btn-default active ]">
+                                                                @item.Name.ToUpper()
+                                                            </label>
+                                                        </div>
+                                                    </div>
+                                                }
+                                                <button type="submit" id="form-submit" class="btn btn-primary">Archive</button>
+                                            </form>
+                                        }
+                                        else { <p>No Projects to archive</p>}
+                                    </th>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

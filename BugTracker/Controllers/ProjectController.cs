@@ -14,7 +14,7 @@ namespace BugTracker.Controllers
     {
         ApplicationDbContext Db = new ApplicationDbContext();
         UserRolesHelper rolehelper;
-            
+
         public ProjectController()
         {
             rolehelper = new UserRolesHelper(Db);
@@ -22,7 +22,10 @@ namespace BugTracker.Controllers
 
         public ActionResult Index()
         {
-            var projectList = Db.Projects.Select(n => new ProjectListViewModel
+            var projectList = Db
+                .Projects
+                .Where(p => !p.IsArchived)
+                .Select(n => new ProjectListViewModel
             {
                 Id = n.Id,
                 Name = n.Name,
@@ -58,7 +61,7 @@ namespace BugTracker.Controllers
                 return RedirectToAction(nameof(ProjectController.Index));
             }
 
-            var project = Db.Projects.FirstOrDefault(p => p.Id == id);
+            var project = Db.Projects.Where(p => !p.IsArchived).FirstOrDefault(p => p.Id == id);
 
             var model = new CreateProjectViewModel
             {
@@ -84,7 +87,7 @@ namespace BugTracker.Controllers
         [HttpGet]
         public ActionResult ChangeMember(int id)
         {
-            var project = Db.Projects.FirstOrDefault(p => p.Id == id);
+            var project = Db.Projects.Where(p => !p.IsArchived).FirstOrDefault(p => p.Id == id);
 
             var Allusers = Db.Users.Select(n => new UserListViewModel
             {
@@ -104,7 +107,7 @@ namespace BugTracker.Controllers
         [HttpPost]
         public ActionResult ChangeMember(string userId, int projectId)
         {
-            var project = Db.Projects.FirstOrDefault(n => n.Id == projectId);
+            var project = Db.Projects.Where(p => !p.IsArchived).FirstOrDefault(n => n.Id == projectId);
 
             var findUser = Db.Users.FirstOrDefault(n => n.Id == userId);
 
@@ -119,7 +122,7 @@ namespace BugTracker.Controllers
         public ActionResult RemoveMember(string userId, int projectId)
         {
 
-            var project = Db.Projects.FirstOrDefault(n => n.Id == projectId);
+            var project = Db.Projects.Where(p => !p.IsArchived).FirstOrDefault(n => n.Id == projectId);
 
             var findUser = Db.Users.FirstOrDefault(n => n.Id == userId);
 
@@ -138,7 +141,7 @@ namespace BugTracker.Controllers
 
                 if (id.HasValue)
                 {
-                    project = Db.Projects.FirstOrDefault(p => p.Id == id);
+                    project = Db.Projects.Where(p => !p.IsArchived).FirstOrDefault(p => p.Id == id);
                     if (project == null)
                     {
                         return RedirectToAction(nameof(ProjectController.Index));
@@ -157,6 +160,39 @@ namespace BugTracker.Controllers
             return RedirectToAction(nameof(ProjectController.Index));
 
         }
+        [HttpGet]
+        public ActionResult Archive()
+        {
+            var projectList = Db.
+                Projects.
+                Where(p => !p.IsArchived).
+                Select(n => new ProjectListViewModel
+                {
+                    Id = n.Id,
+                    Name = n.Name,
+                }).ToList();
+
+            return View(projectList);
+        }
+        [HttpPost]
+        public ActionResult Archive(List<string> projectId)
+        {
+            var projectList = Db.Projects.ToList();
+
+            if (projectId.Count() > 0)
+            {
+                foreach (var id in projectId)
+                {
+                    if (projectList.Any(p => p.Id.ToString() == id))
+                    {
+                        projectList.Find(p => p.Id.ToString() == id).IsArchived = true;
+                    }
+                }
+            }
+            Db.SaveChanges();
+
+            return RedirectToAction(nameof(ProjectController.Archive));
+        }
 
         [OverrideAuthorization]
         [Authorize(Roles = "Submitter,Developer,Admin,Project Manager")]
@@ -164,7 +200,7 @@ namespace BugTracker.Controllers
         {
             var userName = User.Identity.Name;
             var projectList = Db.Projects
-                .Where(p => p.Users.Any(n => n.UserName == userName))
+                .Where(p => p.Users.Any(n => n.UserName == userName) && !p.IsArchived)
                 .Select(n => new ProjectListViewModel
                 {
                     Id = n.Id,

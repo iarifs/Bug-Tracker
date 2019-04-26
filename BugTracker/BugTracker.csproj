@@ -211,6 +211,8 @@
     <Compile Include="Models\Domain\TicketType.cs" />
     <Compile Include="Models\Filters\CustomActionFilter.cs" />
     <Compile Include="Models\EmailService.cs" />
+    <Compile Include="Models\Filters\CommentModifyActionFilter.cs" />
+    <Compile Include="Models\Filters\DeleteAttachmentActionFilter.cs" />
     <Compile Include="Models\IdentityExtension.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
@@ -310,6 +312,7 @@
     <Content Include="Views\Ticket\AssignedToMe.cshtml" />
     <Content Include="Views\Shared\_commentBox.cshtml" />
     <Content Include="Views\Ticket\UnAthorizedAccess.cshtml" />
+    <Content Include="Views\Project\Archive.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

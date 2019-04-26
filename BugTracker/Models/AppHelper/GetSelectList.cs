@@ -66,7 +66,8 @@ namespace BugTracker.Models.AppHelper
         {
             return Db
                  .Projects
-                 .Where(p => p.Users.Any(n => n.Id == userId))
+                 .Where(p => p.Users.Any(n => n.Id == userId) &&
+                 !p.IsArchived)
                  .Select(n => new SelectListItem
                  {
                      Text = n.Name,
@@ -78,6 +79,7 @@ namespace BugTracker.Models.AppHelper
         {
             return Db
                  .Projects
+                 .Where(p => !p.IsArchived)
                  .Select(n => new SelectListItem
                  {
                      Text = n.Name,
