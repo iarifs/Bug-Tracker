@@ -51,6 +51,7 @@ namespace BugTracker.Migrations
 
 
             //creating demo roles
+            CreateDemoUser(ADMIN);
             CreateDemoUser(MANAGER);
             CreateDemoUser(DEVELOPER);
             CreateDemoUser(SUBMITTER);
@@ -111,19 +112,15 @@ namespace BugTracker.Migrations
 
             void CreateDemoUser(string user)
             {
-                if (System.Diagnostics.Debugger.IsAttached == false)
-                {
-                    //! Uncomment line below to start debugging the Seed() method
-                    System.Diagnostics.Debugger.Launch();
-                }
+                user = user.Replace(" ", "_");
 
                 if (!context.Users.Any(p => p.Email == "demo." + user.ToLower() + "@mybugtracker.com"))
                 {
 
                     adminUser = new ApplicationUser
                     {
-                        UserName = "demo." + user.ToLower().Replace(" ", "-") + "@mybugtracker.com",
-                        Email = "demo." + user.ToLower().Replace(" ","-") + "@mybugtracker.com",
+                        UserName = "demo." + user.ToLower() + "@mybugtracker.com",
+                        Email = "demo." + user.ToLower() + "@mybugtracker.com",
                         EmailConfirmed = true,
                         ScreenName = "Demo-" + user,
                     };
@@ -136,9 +133,9 @@ namespace BugTracker.Migrations
                     adminUser = context.Users.First(p => p.UserName == "demo." + user.ToLower() + "@mybugtracker.com");
                 }
 
-                if (!userManager.IsInRole(adminUser.Id, user))
+                if (!userManager.IsInRole(adminUser.Id, user.Replace("_"," ")))//user as a role 
                 {
-                    userManager.AddToRole(adminUser.Id, user);
+                    userManager.AddToRole(adminUser.Id, user.Replace("_", " "));
                 }
             }
 
@@ -170,7 +167,7 @@ namespace BugTracker.Migrations
                 context.SaveChanges();
             }
 
-           
+
         }
     }
 }

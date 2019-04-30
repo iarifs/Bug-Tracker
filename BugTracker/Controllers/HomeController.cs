@@ -32,19 +32,16 @@ namespace BugTracker.Controllers
                 model.TotalTicketByOpen = getTotalNum.OpenTicket();
                 model.TotalTicketByResolved = getTotalNum.ResolvedTicket();
                 model.TotalTicketByRejected = getTotalNum.RejectedTicket();
-                ViewBag.RenderView = ("_AdminDashboard");
             }
-            else if (User.IsInRole("Developer"))
+             if (User.IsInRole("Developer"))
             {
                 model.TotalProjectAssignedByDev = getTotalNum.AssignedProject();
                 model.TotalTicketAssigned = getTotalNum.AssignedTicket();
-                ViewBag.RenderView = ("_DeveloperDashboard");
             }
-            else if (User.IsInRole("Submitter"))
+             if (User.IsInRole("Submitter"))
             {
                 model.TotalProjectAssignedBySub = getTotalNum.AssignedProject();
                 model.TotalTicketCreated = getTotalNum.CreatedTicket();
-                ViewBag.RenderView = ("_SubmitterDashboard");
             }
 
             return View(model);

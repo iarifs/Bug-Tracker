@@ -109,9 +109,33 @@ namespace BugTracker.Controllers
         [AllowAnonymous]
         public ActionResult DemoLogin(string role)
         {
-            return View();
+            AuthenticationManager.SignOut(DefaultAuthenticationTypes.ApplicationCookie);
+
+            switch (role)
+            {
+                case "Admin":
+                    return SignInAsDemo(role);
+                case "Project Manager":
+                    return SignInAsDemo(role);
+                case "Developer":
+                    return SignInAsDemo(role);
+                case "Submitter":
+                    return SignInAsDemo(role);
+                default:
+                    return View();
+            }
         }
 
+        private ActionResult SignInAsDemo(string role)
+        {
+            var placeholderEmail = "@mybugtracker.com";
+
+            var user = UserManager.FindByEmail("demo." + role.ToLower().Replace(" ","_") + placeholderEmail);
+
+            SignInManager.SignIn(user, isPersistent: false, rememberBrowser: false);
+
+            return RedirectToAction(nameof(HomeController.Index), nameof(HomeController).ToControllerName());
+        }
 
 
 
