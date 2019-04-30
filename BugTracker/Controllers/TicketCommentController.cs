@@ -77,7 +77,7 @@ namespace BugTracker.Controllers
                 return RedirectToAction(nameof(TicketController.Index));
             }
 
-            var comment = Db.Comments.Where(p => !p.Ticket.Project.IsArchived).FirstOrDefault(p => p.Id == id);
+            var comment = Db.Comments.FirstOrDefault(p => p.Id == id);
 
             if (comment == null)
             {
@@ -99,7 +99,7 @@ namespace BugTracker.Controllers
                 return RedirectToAction(nameof(TicketController.Index),nameof(TicketController).ToControllerName());
             }
 
-            var comment = Db.Comments.Where(p => !p.Ticket.Project.IsArchived).FirstOrDefault(p => p.Id == id);
+            var comment = Db.Comments.FirstOrDefault(p => p.Id == id);
             
             var currentUserId = User.Identity.GetUserId();
 

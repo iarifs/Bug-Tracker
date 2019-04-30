@@ -35,15 +35,15 @@
                                                 @foreach (var item in Model)
                                                 {
 
-                                                    <div class="[ form-group ]">
+                                                    <div class="form-group">
                                                         <input type="checkbox" name="projectId" id="fancy-checkbox-info-@item.Id" value="@item.Id" />
-                                                        <div class="[ btn-group ]">
-                                                            <label for="fancy-checkbox-info-@item.Id" class="[ btn btn-info ]">
-                                                                <span class="[ glyphicon glyphicon-ok ]"></span>
+                                                        <div class="btn-group">
+                                                            <label for="fancy-checkbox-info-@item.Id" class="btn btn-success">
+                                                                <span class="glyphicon glyphicon-ok"></span>
                                                                 <span> </span>
                                                             </label>
-                                                            <label for="fancy-checkbox-info-@item.Id" class="[ btn btn-default active ]">
-                                                                @item.Name.ToUpper()
+                                                            <label for="fancy-checkbox-info-@item.Id" class="btn btn-default active">
+                                                                @item.Name
                                                             </label>
                                                         </div>
                                                     </div>

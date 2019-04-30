@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BugTracker.Models.AppHelper;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -14,16 +15,16 @@ namespace BugTracker.Models.Domain
         public DateTime? DateUpdated { get; set; }
 
         public int ProjectId { get; set; }
-        public Project Project { get; set; }
+        public virtual Project Project { get; set; }
         
         public int TicketTypeId { get; set; }
-        public TicketType TicketType { get; set; }
+        public virtual TicketType TicketType { get; set; }
 
         public int TicketStatusId { get; set; }
-        public TicketStatus TicketStatus { get; set; }
+        public virtual TicketStatus TicketStatus { get; set; }
 
         public int TicketPriorityId { get; set; }
-        public  TicketPriority TicketPriority { get; set; }
+        public virtual TicketPriority TicketPriority { get; set; }
 
         public string OwnerUserId { get; set; }
         public virtual ApplicationUser OwnerUser { get; set; }

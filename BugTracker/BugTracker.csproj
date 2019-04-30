@@ -48,6 +48,9 @@
     <Reference Include="AutoMapper, Version=7.0.1.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
       <HintPath>..\packages\AutoMapper.7.0.1\lib\net45\AutoMapper.dll</HintPath>
     </Reference>
+    <Reference Include="EntityFramework.DynamicFilters, Version=3.0.1.0, Culture=neutral, PublicKeyToken=59b66d028979105b, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.DynamicFilters.3.0.1\lib\net40\EntityFramework.DynamicFilters.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
@@ -195,6 +198,7 @@
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\AppHelper\GetTotalCount.cs" />
     <Compile Include="Models\AppHelper\MailSender.cs" />
     <Compile Include="Models\AppHelper\TrackChanges.cs" />
     <Compile Include="Models\AppHelper\GetSelectList.cs" />
@@ -218,6 +222,7 @@
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\ViewModels\CreateProjectViewModel.cs" />
     <Compile Include="Models\ViewModels\CreateTicketsViewModel.cs" />
+    <Compile Include="Models\ViewModels\DashBoardViewModel.cs" />
     <Compile Include="Models\ViewModels\EditNameViewModel.cs" />
     <Compile Include="Models\ViewModels\ProjectListViewModel.cs" />
     <Compile Include="Models\ViewModels\TicketDetailsViewModel.cs" />
@@ -313,6 +318,10 @@
     <Content Include="Views\Shared\_commentBox.cshtml" />
     <Content Include="Views\Ticket\UnAthorizedAccess.cshtml" />
     <Content Include="Views\Project\Archive.cshtml" />
+    <Content Include="Views\Shared\_AdminDashboard.cshtml" />
+    <Content Include="Views\Shared\_DeveloperDashboard.cshtml" />
+    <Content Include="Views\Shared\_SubmitterDashboard.cshtml" />
+    <Content Include="Views\Account\DemoLogin.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -88,7 +88,7 @@ namespace BugTracker.Controllers
                 return RedirectToAction(nameof(TicketController.Index));
             }
 
-            var attachment = Db.Attachments.Where(p => !p.Ticket.Project.IsArchived).FirstOrDefault(p => p.Id == id);
+            var attachment = Db.Attachments.FirstOrDefault(p => p.Id == id);
 
             if (attachment == null)
             {

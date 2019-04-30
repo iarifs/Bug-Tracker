@@ -32,6 +32,7 @@ namespace BugTracker.Models.Filters
                 RedirectToUnathorize(filterContext);
             }
 
+
             else if (!filterContext.HttpContext.User.IsInRole("Admin") ||
                  !filterContext.HttpContext.User.IsInRole("Project Manager"))
             {

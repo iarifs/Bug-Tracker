@@ -3,7 +3,9 @@ using System.ComponentModel.DataAnnotations.Schema;
 using System.Data.Entity;
 using System.Security.Claims;
 using System.Threading.Tasks;
+using BugTracker.Models.AppHelper;
 using BugTracker.Models.Domain;
+using EntityFramework.DynamicFilters;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
 
@@ -21,7 +23,7 @@ namespace BugTracker.Models
         public virtual List<Ticket> AssignedTickets { get; set; }
 
         public virtual List<Comment> Comments { get; set; }
-        
+
         public virtual List<Attachment> Attachments { get; set; }
 
         public virtual List<History> Histories { get; set; }
@@ -85,6 +87,13 @@ namespace BugTracker.Models
                     x.MapRightKey("TicketId");
                     x.ToTable("TicketNotifications");
                 });
+
+            //custom filter to not include project that is archived and
+            //not inclued ticket that has archived project
+
+            modelBuilder.Filter("IsPArchived", (Project p) => !p.IsArchived);
+
+            modelBuilder.Filter("IsTArchived", (Ticket t) => (!t.Project.IsArchived));
         }
     }
 }

@@ -61,7 +61,7 @@ namespace BugTracker.Controllers
             if (User.IsInRole("Admin") ||
                 User.IsInRole("Project Manager"))
             {
-                var model = Db.Tickets.Where(p => !p.Project.IsArchived).ProjectTo<TicketIndexViewModel>().ToList();
+                var model = Db.Tickets.ProjectTo<TicketIndexViewModel>().ToList();
                 model.ForEach(p => p.CanIEdit = true);
                 return View(model);
             }
@@ -72,8 +72,7 @@ namespace BugTracker.Controllers
 
                 var model = Db
                             .Tickets
-                            .Where(p => p.Project.Users.Any(x => x.Id == userId) &&
-                            !p.Project.IsArchived)
+                            .Where(p => p.Project.Users.Any(x => x.Id == userId))
                             .ProjectTo<TicketIndexViewModel>().ToList();
 
                 //add canIEdit property for editing their tickets only
@@ -93,8 +92,7 @@ namespace BugTracker.Controllers
                 var submitterName = User.Identity.GetScreenName();
                 var model = Db
                           .Tickets
-                          .Where(p => p.Project.Users.Any(x => x.Id == userId) &&
-                          !p.Project.IsArchived)
+                          .Where(p => p.Project.Users.Any(x => x.Id == userId))
                           .ProjectTo<TicketIndexViewModel>().ToList();
 
                 foreach (var x in model)
@@ -160,7 +158,7 @@ namespace BugTracker.Controllers
             var userId = User.Identity.GetUserId();
 
             var model = Db.Tickets
-                .Where(P => P.OwnerUserId == userId && !P.Project.IsArchived)
+                .Where(P => P.OwnerUserId == userId)
                 .ProjectTo<TicketIndexViewModel>().ToList();
 
             return View(model);
@@ -176,7 +174,7 @@ namespace BugTracker.Controllers
             }
             var userId = User.Identity.GetUserId();
 
-            var ticket = Db.Tickets.Where(p => !p.Project.IsArchived).FirstOrDefault(p => p.Id == id);
+            var ticket = Db.Tickets.FirstOrDefault(p => p.Id == id);
 
             if (ticket == null)
             {
@@ -213,7 +211,7 @@ namespace BugTracker.Controllers
             }
 
 
-            var model = Db.Tickets.Where(p => !p.Project.IsArchived).FirstOrDefault(p => p.Id == id);
+            var model = Db.Tickets.FirstOrDefault(p => p.Id == id);
 
             var currentUserId = User.Identity.GetUserId();
 
@@ -270,7 +268,6 @@ namespace BugTracker.Controllers
                 .Include(p => p.TicketStatus)
                 .Include(p => p.TicketType)
                 .Include(p => p.TicketPriority)
-                .Where(p => !p.Project.IsArchived)
                 .FirstOrDefault(p => p.Id == id);
 
             if (ticket == null)
@@ -314,7 +311,7 @@ namespace BugTracker.Controllers
                 return RedirectToAction(nameof(TicketController.Index));
             }
 
-            var ticket = Db.Tickets.Where(p => !p.Project.IsArchived).FirstOrDefault(p => p.Id == id);
+            var ticket = Db.Tickets.FirstOrDefault(p => p.Id == id);
 
             var developer = Db.Users.FirstOrDefault(p => p.Id == form.DeveloperId);
 
@@ -353,7 +350,7 @@ namespace BugTracker.Controllers
             var userId = User.Identity.GetUserId();
 
             var model = Db.Tickets
-                .Where(P => P.AssignedToUserId == userId && !P.Project.IsArchived)
+                .Where(P => P.AssignedToUserId == userId)
                 .ProjectTo<TicketIndexViewModel>().ToList();
 
             return View(model);
@@ -375,7 +372,7 @@ namespace BugTracker.Controllers
                 return RedirectToAction(nameof(TicketController.Index));
             }
 
-            var ticket = Db.Tickets.Where(p => !p.Project.IsArchived).FirstOrDefault(P => P.Id == ticketId);
+            var ticket = Db.Tickets.FirstOrDefault(P => P.Id == ticketId);
 
             var currentUserId = User.Identity.GetUserId();
 

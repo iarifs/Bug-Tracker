@@ -105,6 +105,17 @@ namespace BugTracker.Controllers
             }
         }
 
+        [HttpGet]
+        [AllowAnonymous]
+        public ActionResult DemoLogin(string role)
+        {
+            return View();
+        }
+
+
+
+
+
         //
         // GET: /Account/VerifyCode
         [AllowAnonymous]

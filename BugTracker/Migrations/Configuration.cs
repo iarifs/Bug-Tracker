@@ -38,6 +38,7 @@ namespace BugTracker.Migrations
             const string MANAGER = "Project Manager";
             const string DEVELOPER = "Developer";
             const string SUBMITTER = "Submitter";
+            const string DEMO = "Demo.";
 
             ApplicationUser adminUser;
 
@@ -48,8 +49,14 @@ namespace BugTracker.Migrations
 
             CreateUser(ADMIN);
 
+
+            //creating demo roles
+            CreateDemoUser(MANAGER);
+            CreateDemoUser(DEVELOPER);
+            CreateDemoUser(SUBMITTER);
+
             //seeding info related to Ticket
-            
+
             SeedTicketTypes(nameof(TypesOfTickets.Bug));
             SeedTicketTypes(nameof(TypesOfTickets.Database));
             SeedTicketTypes(nameof(TypesOfTickets.Feature));
@@ -68,13 +75,13 @@ namespace BugTracker.Migrations
             //Function for seeding admin user.
             void CreateUser(string user)
             {
-                if (!context.Users.Any(p => p.Email == ADMIN.ToLower() + "@mybugtracker.com"))
+                if (!context.Users.Any(p => p.Email == user.ToLower() + "@mybugtracker.com"))
                 {
 
                     adminUser = new ApplicationUser
                     {
-                        UserName = ADMIN.ToLower() + "@mybugtracker.com",
-                        Email = ADMIN.ToLower() + "@mybugtracker.com",
+                        UserName = user.ToLower().Replace(" ", "-") + "@mybugtracker.com",
+                        Email = user.ToLower().Replace(" ", "-") + "@mybugtracker.com",
                         EmailConfirmed = true,
                         ScreenName = "Admin",
                     };
@@ -102,7 +109,40 @@ namespace BugTracker.Migrations
                 }
             }
 
-            
+            void CreateDemoUser(string user)
+            {
+                if (System.Diagnostics.Debugger.IsAttached == false)
+                {
+                    //! Uncomment line below to start debugging the Seed() method
+                    System.Diagnostics.Debugger.Launch();
+                }
+
+                if (!context.Users.Any(p => p.Email == "demo." + user.ToLower() + "@mybugtracker.com"))
+                {
+
+                    adminUser = new ApplicationUser
+                    {
+                        UserName = "demo." + user.ToLower().Replace(" ", "-") + "@mybugtracker.com",
+                        Email = "demo." + user.ToLower().Replace(" ","-") + "@mybugtracker.com",
+                        EmailConfirmed = true,
+                        ScreenName = "Demo-" + user,
+                    };
+
+                    userManager.Create(adminUser, "Password-1");
+                }
+
+                else
+                {
+                    adminUser = context.Users.First(p => p.UserName == "demo." + user.ToLower() + "@mybugtracker.com");
+                }
+
+                if (!userManager.IsInRole(adminUser.Id, user))
+                {
+                    userManager.AddToRole(adminUser.Id, user);
+                }
+            }
+
+
             void SeedTicketTypes(string name)
             {
                 if (!context.TicketTypes.Any(p => p.Name == name))
@@ -111,7 +151,7 @@ namespace BugTracker.Migrations
                 }
                 context.SaveChanges();
             }
-            
+
             void SeedTicketStatus(string name)
             {
                 if (!context.TicketStatuses.Any(p => p.Name == name))
@@ -130,6 +170,7 @@ namespace BugTracker.Migrations
                 context.SaveChanges();
             }
 
+           
         }
     }
 }
